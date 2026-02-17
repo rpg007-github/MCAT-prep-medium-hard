@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCAT Advanced Adaptive Prep & Pathway Mastery</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c12;--bg2:#10131b;--card:#161a26;--card-hover:#1c2130;--border:#262b3d;--text:#e4e2de;--text-soft:#9d99a2;--text-dim:#5c5a64;--accent:#34d399;--accent2:#6366f1;--accent3:#f59e0b;--accent4:#ef4444;--accent5:#a78bfa;--green:#4ade80;--green-bg:rgba(74,222,128,0.07);--red:#f87171;--red-bg:rgba(248,113,113,0.07);--amber:#fbbf24;--amber-bg:rgba(251,191,36,0.07);--blue:#60a5fa;--blue-bg:rgba(96,165,250,0.07);--purple:#a78bfa;--purple-bg:rgba(167,139,250,0.07);--indigo:#818cf8;--indigo-bg:rgba(129,140,248,0.07);--teal:#2dd4bf;--teal-bg:rgba(45,212,191,0.07);--shadow:0 4px 24px rgba(0,0,0,0.5);--radius:12px;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Outfit',sans-serif;--font-mono:'Fira Code',monospace}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}::selection{background:var(--accent);color:var(--bg)}
+.hero{background:linear-gradient(135deg,#0a0c12 0%,#1a0f38 30%,#0d1f2d 60%,#0a0c12 100%);padding:4.5rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 350px at 50% 0%,rgba(52,211,153,0.09),transparent),radial-gradient(ellipse 500px 250px at 25% 100%,rgba(99,102,241,0.07),transparent),radial-gradient(ellipse 500px 250px at 75% 100%,rgba(167,139,250,0.06),transparent);pointer-events:none}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:400;letter-spacing:-0.02em;position:relative;color:#fff}.hero h1 span{color:var(--accent)}.hero .sub{font-size:1.05rem;color:var(--text-soft);max-width:640px;margin:0.6rem auto 0;position:relative;font-weight:300}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap;position:relative}.hero .badge{padding:0.25rem 0.8rem;border-radius:20px;font-size:0.75rem;font-weight:500;letter-spacing:0.03em;text-transform:uppercase}
+.badge-green{background:var(--green-bg);color:var(--green);border:1px solid rgba(74,222,128,0.2)}.badge-blue{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(96,165,250,0.2)}.badge-purple{background:var(--purple-bg);color:var(--purple);border:1px solid rgba(167,139,250,0.2)}.badge-amber{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(251,191,36,0.2)}.badge-indigo{background:var(--indigo-bg);color:var(--indigo);border:1px solid rgba(129,140,248,0.2)}.badge-teal{background:var(--teal-bg);color:var(--teal);border:1px solid rgba(45,212,191,0.2)}
+.nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 0.5rem;position:sticky;top:0;z-index:100;overflow-x:auto;display:flex}.nav button{background:none;border:none;color:var(--text-soft);font-family:var(--font-body);font-size:0.84rem;font-weight:500;padding:0.85rem 1rem;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s}.nav button:hover{color:var(--text)}.nav button.active{color:var(--accent);border-bottom-color:var(--accent)}
+.container{max-width:940px;margin:0 auto;padding:2rem 1.25rem 4rem}.section{display:none}.section.active{display:block}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;transition:border-color 0.2s}.card:hover{border-color:rgba(52,211,153,0.2)}.card h3{font-family:var(--font-display);font-size:1.3rem;font-weight:400;margin-bottom:0.5rem;color:#fff}.card p{color:var(--text-soft);font-size:0.94rem;margin-bottom:0.5rem}
+.tip{background:var(--green-bg);border:1px solid rgba(74,222,128,0.15);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.9rem}.tip .tip-label{color:var(--green);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.2rem}
+.warn{background:var(--amber-bg);border:1px solid rgba(251,191,36,0.15);border-left:3px solid var(--amber);border-radius:0 var(--radius) var(--radius) 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.9rem}.warn .warn-label{color:var(--amber);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.2rem}
+.sys{background:var(--blue-bg);border:1px solid rgba(96,165,250,0.15);border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.9rem}.sys .sys-label{color:var(--blue);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.2rem}
+.mcat{background:var(--purple-bg);border:1px solid rgba(167,139,250,0.15);border-left:3px solid var(--purple);border-radius:0 var(--radius) var(--radius) 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.9rem}.mcat .mcat-label{color:var(--purple);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.2rem}
+.pathway{background:var(--indigo-bg);border:1px solid rgba(129,140,248,0.15);border-left:3px solid var(--indigo);border-radius:0 var(--radius) var(--radius) 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.88rem;font-family:var(--font-mono);line-height:1.9}.pathway .pw-label{color:var(--indigo);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem;font-family:var(--font-body)}
+table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}table.rt th{background:rgba(52,211,153,0.06);color:var(--accent);font-weight:600;text-align:left;padding:0.55rem 0.7rem;border-bottom:1px solid var(--border);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em}table.rt td{padding:0.5rem 0.7rem;border-bottom:1px solid rgba(42,46,62,0.5);color:var(--text-soft)}table.rt tr:hover td{background:rgba(52,211,153,0.03)}table.rt code{font-family:var(--font-mono);font-size:0.82rem;color:var(--accent);background:rgba(52,211,153,0.08);padding:0.1rem 0.35rem;border-radius:4px}
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem}.quiz-stats{display:flex;gap:0.8rem;flex-wrap:wrap}.stat{text-align:center;min-width:65px}.stat-val{font-family:var(--font-mono);font-size:1.3rem;font-weight:600}.stat-label{font-size:0.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em}.stat-green .stat-val{color:var(--green)}.stat-red .stat-val{color:var(--red)}.stat-blue .stat-val{color:var(--blue)}.stat-amber .stat-val{color:var(--amber)}.stat-purple .stat-val{color:var(--purple)}
+.diff-control{display:flex;align-items:center;gap:0.4rem;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:0.25rem}.diff-btn{width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;background:transparent;color:var(--text-soft)}.diff-btn:hover{background:rgba(255,255,255,0.08);color:var(--text)}.diff-label{font-size:0.8rem;font-weight:600;min-width:105px;text-align:center;padding:0.25rem 0.5rem;border-radius:20px}.diff-1{color:#4ade80;background:rgba(74,222,128,0.1)}.diff-2{color:#60a5fa;background:rgba(96,165,250,0.1)}.diff-3{color:#fbbf24;background:rgba(251,191,36,0.1)}.diff-4{color:#f97316;background:rgba(249,115,22,0.1)}.diff-5{color:#ef4444;background:rgba(239,68,68,0.1)}
+.topic-filters{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}.topic-btn{padding:0.3rem 0.7rem;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-soft);font-family:var(--font-body);font-size:0.78rem;font-weight:500;cursor:pointer;transition:all 0.2s}.topic-btn:hover{border-color:var(--accent);color:var(--accent)}.topic-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.q-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;position:relative}.q-meta{display:flex;gap:0.4rem;margin-bottom:0.7rem;flex-wrap:wrap}.q-tag{font-size:0.7rem;font-weight:600;padding:0.18rem 0.55rem;border-radius:12px;text-transform:uppercase;letter-spacing:0.04em}.q-stem{font-size:1rem;line-height:1.7;margin-bottom:1rem;color:var(--text)}.q-passage{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:0.9rem 1.1rem;margin-bottom:0.9rem;font-size:0.9rem;color:var(--text-soft);line-height:1.7;font-style:italic}
+.q-opts{display:flex;flex-direction:column;gap:0.45rem}.q-opt{display:flex;align-items:flex-start;gap:0.6rem;padding:0.6rem 0.9rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all 0.2s;font-size:0.93rem}.q-opt:hover{border-color:rgba(52,211,153,0.3);background:rgba(52,211,153,0.04)}.q-opt.selected{border-color:var(--accent);background:rgba(52,211,153,0.06)}.q-opt.correct{border-color:var(--green);background:rgba(74,222,128,0.08)}.q-opt.wrong{border-color:var(--red);background:rgba(248,113,113,0.08)}.q-opt.missed{border-color:var(--green);background:rgba(74,222,128,0.04);opacity:0.7}
+.q-opt-letter{font-family:var(--font-mono);font-weight:600;font-size:0.82rem;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:5px;background:rgba(255,255,255,0.06);color:var(--text-soft);flex-shrink:0;margin-top:0.15rem}.q-opt.selected .q-opt-letter{background:var(--accent);color:var(--bg)}.q-opt.correct .q-opt-letter{background:var(--green);color:var(--bg)}.q-opt.wrong .q-opt-letter{background:var(--red);color:#fff}
+.q-explain{display:none;margin-top:1rem;padding:1rem 1.1rem;background:rgba(52,211,153,0.04);border:1px solid rgba(52,211,153,0.1);border-radius:8px;font-size:0.88rem;line-height:1.65;color:var(--text-soft)}.q-explain.show{display:block;animation:fadeIn 0.3s ease}.q-explain strong{color:var(--accent);font-weight:600}.q-explain .exp-label{color:var(--accent);font-weight:600;font-size:0.76rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem;display:block}.q-explain .systems-note{margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid rgba(52,211,153,0.1);color:var(--blue);font-size:0.83rem}
+.learn-tools{display:none;margin-top:0.8rem}.learn-tools.show{display:block;animation:fadeIn 0.3s ease}.lt-tabs{display:flex;gap:0.3rem;margin-bottom:0.6rem;flex-wrap:wrap}.lt-tab{padding:0.3rem 0.7rem;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:0.75rem;font-weight:500;cursor:pointer;font-family:var(--font-body);transition:all 0.2s}.lt-tab:hover{color:var(--text-soft);border-color:var(--text-dim)}.lt-tab.active{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.lt-panel{display:none;padding:0.9rem 1rem;background:rgba(129,140,248,0.04);border:1px solid rgba(129,140,248,0.1);border-radius:8px;font-size:0.86rem;line-height:1.65;color:var(--text-soft)}.lt-panel.active{display:block}.lt-panel h4{color:var(--indigo);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.4rem}
+.lt-panel .fc{display:inline-block;margin:0.2rem;padding:0.3rem 0.7rem;border-radius:6px;background:rgba(129,140,248,0.1);border:1px solid rgba(129,140,248,0.15);color:var(--indigo);font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.2s}.lt-panel .fc:hover{background:var(--indigo);color:#fff}.lt-panel .fc.flipped{background:rgba(52,211,153,0.1);border-color:rgba(52,211,153,0.2);color:var(--accent)}
+.lt-panel .misconception{padding:0.5rem 0.8rem;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.12);border-radius:6px;margin:0.3rem 0}.lt-panel .misconception .wrong-idea{color:var(--red);font-weight:500;text-decoration:line-through;font-size:0.84rem}.lt-panel .misconception .right-idea{color:var(--green);font-weight:500;font-size:0.84rem}
+.lt-panel .teach-prompt{padding:0.6rem 0.8rem;background:rgba(45,212,191,0.06);border:1px solid rgba(45,212,191,0.12);border-radius:6px;margin:0.3rem 0;color:var(--teal);font-style:italic}
+.q-submit{margin-top:0.8rem;padding:0.55rem 1.4rem;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-family:var(--font-body);font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.2s}.q-submit:hover{opacity:0.9;transform:translateY(-1px)}.q-submit:disabled{opacity:0.4;cursor:default;transform:none}
+.sg-section{margin-bottom:2rem}.sg-section h2{font-family:var(--font-display);font-size:1.55rem;color:#fff;margin-bottom:0.7rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}.sg-section h4{color:var(--accent);font-size:0.93rem;font-weight:600;margin:0.9rem 0 0.35rem}.sg-section p{color:var(--text-soft);font-size:0.94rem;margin-bottom:0.5rem}
+.collapsible{cursor:pointer;padding:0.85rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:0.4rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.2s}.collapsible:hover{border-color:rgba(52,211,153,0.2)}.collapsible .c-title{font-weight:500;font-size:0.93rem}.collapsible .c-arrow{color:var(--text-dim);font-size:0.85rem;transition:transform 0.2s}.collapsible.open .c-arrow{transform:rotate(180deg)}.c-body{display:none;padding:1.1rem;background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);margin-top:-0.4rem;margin-bottom:0.4rem}.c-body.open{display:block;animation:fadeIn 0.3s ease}.c-body p{color:var(--text-soft);font-size:0.94rem;margin-bottom:0.5rem}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:700px){.quiz-header{flex-direction:column}.q-card{padding:1.1rem}.container{padding:1.5rem 1rem 3rem}.hero{padding:3rem 1.5rem 2.5rem}.nav button{padding:0.75rem 0.8rem;font-size:0.8rem}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>MCAT <span>Advanced</span> Prep</h1>
+<p class="sub">Harder questions. Deeper explanations. Pathway mastery. Learn from every mistake.</p>
+<div class="badges">
+<span class="badge badge-green">Adaptive Engine</span>
+<span class="badge badge-indigo">Learning Tools</span>
+<span class="badge badge-purple">Pathway Maps</span>
+<span class="badge badge-amber">Misconception Traps</span>
+<span class="badge badge-blue">Systems Chains</span>
+<span class="badge badge-teal">Teach-Back</span>
+</div>
+</div>
+<div class="nav" id="main-nav">
+<button class="active" onclick="showSection('practice')">Adaptive Practice</button>
+<button onclick="showSection('pathways')">Key Pathways</button>
+<button onclick="showSection('reactions')">Reactions</button>
+<button onclick="showSection('misconceptions')">Misconceptions</button>
+<button onclick="showSection('integration')">Systems Integration</button>
+<button onclick="showSection('strategy')">MCAT Strategy</button>
+</div>
+<div class="container">
+
+<div class="section active" id="sec-practice">
+<div class="quiz-header">
+<div class="quiz-stats">
+<div class="stat stat-green"><div class="stat-val" id="st-correct">0</div><div class="stat-label">Correct</div></div>
+<div class="stat stat-red"><div class="stat-val" id="st-wrong">0</div><div class="stat-label">Wrong</div></div>
+<div class="stat stat-blue"><div class="stat-val" id="st-total">0</div><div class="stat-label">Total</div></div>
+<div class="stat stat-amber"><div class="stat-val" id="st-pct">--%</div><div class="stat-label">Accuracy</div></div>
+<div class="stat stat-purple"><div class="stat-val" id="st-streak">0</div><div class="stat-label">Streak</div></div>
+</div>
+<div>
+<div style="font-size:0.75rem;color:var(--text-dim);text-align:center;margin-bottom:0.2rem;text-transform:uppercase;letter-spacing:0.05em;">Difficulty Level</div>
+<div class="diff-control">
+<button class="diff-btn" onclick="changeDiff(-1)" title="Decrease">&#9660;</button>
+<div class="diff-label diff-3" id="diff-display">3 &mdash; Medium</div>
+<button class="diff-btn" onclick="changeDiff(1)" title="Increase">&#9650;</button>
+</div>
+</div>
+</div>
+<div class="topic-filters" id="topic-filters"></div>
+<div id="quiz-area"></div>
+<div style="text-align:center;margin-top:1rem;">
+<button class="q-submit" onclick="loadNextQuestion()" id="btn-next-q" style="display:none;">Next Question &rarr;</button>
+<button class="q-submit" onclick="startQuiz()" id="btn-start" style="background:var(--accent2);">Start Practice</button>
+</div>
+</div>
+
+<div class="section" id="sec-pathways">
+<div class="sg-section">
+<h2>Key Pathways: The Chains You Must Know</h2>
+<p>The MCAT tests whether you can trace a signal or metabolite through an entire pathway and predict what happens when one step fails. For each pathway below, know every intermediate, the enzyme, the regulation, and what disease results when it breaks.</p>
+</div>
+
+<div class="card">
+<h3>Glycolysis: The 10-Step Investment-Payoff</h3>
+<p>Glycolysis converts one glucose (6C) to two pyruvate (3C) in the cytoplasm. Net yield: 2 ATP (substrate-level phosphorylation) and 2 NADH. The three irreversible, regulated steps are the key to MCAT questions.</p>
+<div class="pathway"><div class="pw-label">Glycolysis Regulatory Steps</div>
+Glucose &rarr; <strong>Hexokinase</strong> (or Glucokinase in liver) &rarr; G6P<br>
+&emsp;[Inhibited by G6P (hexokinase) | Glucokinase: high Km, no product inhibition]<br>
+F6P &rarr; <strong>PFK-1</strong> (rate-limiting step) &rarr; F1,6BP<br>
+&emsp;[Activated by: AMP, F2,6BP | Inhibited by: ATP, citrate]<br>
+PEP &rarr; <strong>Pyruvate kinase</strong> &rarr; Pyruvate<br>
+&emsp;[Activated by: F1,6BP (feedforward) | Inhibited by: ATP, alanine]
+</div>
+<div class="warn"><div class="warn-label">Critical Misconception</div>PFK-1 and PFK-2 are DIFFERENT enzymes. PFK-1 is the glycolytic enzyme (F6P to F1,6BP). PFK-2 is a bifunctional enzyme (kinase/phosphatase) that makes/degrades F2,6BP, the allosteric activator of PFK-1. Insulin activates PFK-2 kinase activity (makes F2,6BP, accelerates glycolysis). Glucagon activates PFK-2 phosphatase activity (degrades F2,6BP, slows glycolysis).</div>
+<div class="tip"><div class="tip-label">MCAT Connection</div>Hexokinase vs. glucokinase: hexokinase is in most tissues, low Km (always active, traps glucose). Glucokinase is in liver and pancreatic beta cells, high Km (only active at high [glucose], acts as glucose sensor). Glucokinase is NOT inhibited by its product G6P.</div>
+</div>
+
+<div class="card">
+<h3>Gluconeogenesis: The Bypass Enzymes</h3>
+<p>Gluconeogenesis produces glucose from pyruvate, primarily in the liver. It shares 7 of 10 glycolysis enzymes but replaces the 3 irreversible steps.</p>
+<div class="pathway"><div class="pw-label">Gluconeogenesis Bypass Enzymes</div>
+Pyruvate &rarr; <strong>Pyruvate carboxylase</strong> (mito, biotin, activated by acetyl-CoA) &rarr; OAA<br>
+OAA &rarr; <strong>PEPCK</strong> (cytoplasm, GTP-dependent) &rarr; PEP<br>
+F1,6BP &rarr; <strong>Fructose-1,6-bisphosphatase</strong> &rarr; F6P<br>
+G6P &rarr; <strong>Glucose-6-phosphatase</strong> (ER, liver/kidney ONLY) &rarr; Glucose
+</div>
+<div class="sys"><div class="sys-label">Systems Connection</div>Glucose-6-phosphatase is ONLY in liver and kidney. Muscle has no G6Pase, so muscle glycogen cannot directly raise blood glucose. Muscle sends lactate to liver (Cori cycle) or alanine (glucose-alanine cycle) for hepatic gluconeogenesis.</div>
+</div>
+
+<div class="card">
+<h3>TCA Cycle: The Central Hub</h3>
+<div class="pathway"><div class="pw-label">TCA Key Regulatory Enzymes</div>
+OAA + Acetyl-CoA &rarr; <strong>Citrate synthase</strong> &rarr; Citrate [Inhibited by ATP, citrate, succinyl-CoA]<br>
+Isocitrate &rarr; <strong>Isocitrate dehydrogenase</strong> &rarr; alpha-KG + CO2 + NADH [Rate-limiting; activated by ADP, inhibited by ATP, NADH]<br>
+alpha-KG &rarr; <strong>alpha-KG dehydrogenase</strong> &rarr; Succinyl-CoA + CO2 + NADH [Requires TPP, lipoate, CoA, FAD, NAD+]
+</div>
+<div class="warn"><div class="warn-label">Commonly Confused</div>Alpha-KG dehydrogenase uses the SAME five cofactors as pyruvate dehydrogenase: TPP (B1), Lipoate, CoA (B5), FAD (B2), NAD+ (B3). Mnemonic: "Tender Loving Care For Nancy." Beriberi and Wernicke-Korsakoff (B1 deficiency) impair BOTH enzymes.</div>
+</div>
+
+<div class="card">
+<h3>Electron Transport Chain and Poisons</h3>
+<div class="pathway"><div class="pw-label">ETC Complexes, Poisons, and Uncouplers</div>
+NADH &rarr; <strong>Complex I</strong> (NADH dehydrogenase) &rarr; CoQ [Poison: Rotenone, barbiturates]<br>
+FADH2 &rarr; <strong>Complex II</strong> (succinate dehydrogenase) &rarr; CoQ [Malonate inhibits; does NOT pump H+]<br>
+CoQ &rarr; <strong>Complex III</strong> (cyt bc1) &rarr; Cyt c [Poison: Antimycin A]<br>
+Cyt c &rarr; <strong>Complex IV</strong> (cyt c oxidase) &rarr; O2 &rarr; H2O [Poison: CN-, CO, H2S]<br>
+H+ gradient &rarr; <strong>ATP synthase</strong> (Complex V) &rarr; ATP [Poison: Oligomycin]<br><br>
+<strong>Uncouplers</strong> (DNP, thermogenin/UCP1): dissipate gradient as heat. ETC runs FASTER but NO ATP made.
+</div>
+<div class="warn"><div class="warn-label">Critical Distinction</div>ETC inhibitors (rotenone, CN-) STOP electron flow: O2 consumption DROPS, NADH accumulates. Uncouplers (DNP) INCREASE electron flow and O2 consumption but short-circuit ATP production. The MCAT specifically tests whether you confuse these two classes.</div>
+<div class="mcat"><div class="mcat-label">High-Yield Fact</div>Complex II is the ONLY complex that is both a TCA enzyme and an ETC component. It is also the ONLY complex that does NOT pump protons. FADH2 enters at Complex II, which is why FADH2 produces fewer ATP (~1.5) than NADH (~2.5).</div>
+</div>
+
+<div class="card">
+<h3>RAAS Pathway</h3>
+<div class="pathway"><div class="pw-label">Renin-Angiotensin-Aldosterone System</div>
+Low BP / Low Na+ / Sympathetic activation &rarr; JG cells &rarr; <strong>Renin</strong><br>
+Angiotensinogen (liver) &rarr; Angiotensin I &rarr; ACE (lung) &rarr; <strong>Angiotensin II</strong><br>
+&emsp;&rarr; Vasoconstriction (direct)<br>
+&emsp;&rarr; Aldosterone (adrenal cortex) &rarr; Na+ reabsorption, K+ secretion<br>
+&emsp;&rarr; ADH release &rarr; water reabsorption<br>
+&emsp;&rarr; Thirst &rarr; fluid intake<br>
+&emsp;&rarr; Proximal tubule Na+/H2O reabsorption
+</div>
+<div class="sys"><div class="sys-label">Drug Connection</div>ACE inhibitors block Ang II formation AND prevent bradykinin degradation. Bradykinin causes vasodilation and a dry cough (common side effect). ARBs block Ang II at its receptor but do NOT affect bradykinin, so no cough.</div>
+</div>
+
+<div class="card">
+<h3>Insulin vs. Glucagon Signaling</h3>
+<div class="pathway"><div class="pw-label">Fed State: Insulin (RTK Pathway)</div>
+High glucose &rarr; Beta cells: glucokinase senses &rarr; ATP &uarr; &rarr; K-ATP closes &rarr; depolarization &rarr; Ca2+ influx &rarr; insulin exocytosis<br>
+Insulin &rarr; RTK &rarr; IRS &rarr; PI3K/Akt &rarr; GLUT4 translocation, glycogen synthase ON, PFK-2 kinase ON, ACC ON (lipogenesis), K+ uptake
+</div>
+<div class="pathway"><div class="pw-label">Fasted State: Glucagon (GPCR/Gs Pathway)</div>
+Low glucose &rarr; Alpha cells &rarr; Glucagon &rarr; GPCR (Gs) &rarr; cAMP &rarr; PKA<br>
+&rarr; Glycogen phosphorylase ON, glycogen synthase OFF, PFK-2 phosphatase ON, HSL ON (lipolysis), PEPCK/G6Pase transcription &uarr;
+</div>
+<div class="warn"><div class="warn-label">Key Distinction</div>Insulin = receptor tyrosine kinase (RTK). Glucagon = GPCR coupled to Gs. Fundamentally different signaling. Insulin works through PI3K/Akt phosphorylation cascades. Glucagon works through cAMP/PKA.</div>
+</div>
+
+<div class="card">
+<h3>Beta-Oxidation and Fatty Acid Entry</h3>
+<div class="pathway"><div class="pw-label">Carnitine Shuttle and Beta-Oxidation</div>
+FA + CoA &rarr; Fatty acyl-CoA (outer membrane) &rarr; <strong>CPT-I</strong> + Carnitine &rarr; Acylcarnitine<br>
+&emsp;[CPT-I inhibited by Malonyl-CoA (from ACC, fed state)]<br>
+Acylcarnitine &rarr; translocase &rarr; <strong>CPT-II</strong> &rarr; Fatty acyl-CoA (matrix)<br>
+Each cycle: 1 FADH2, 1 NADH, 1 Acetyl-CoA, chain shortened by 2C<br>
+Palmitoyl-CoA (16C): 7 cycles = 7 FADH2, 7 NADH, 8 Acetyl-CoA
+</div>
+<div class="sys"><div class="sys-label">Metabolic Integration</div>Malonyl-CoA (first committed step of FA synthesis) inhibits CPT-I. This prevents simultaneous synthesis and oxidation of fatty acids. In the fed state: insulin &rarr; ACC active &rarr; malonyl-CoA &uarr; &rarr; CPT-I blocked &rarr; no beta-oxidation. In fasting: glucagon &rarr; AMPK &rarr; ACC inhibited &rarr; malonyl-CoA &darr; &rarr; CPT-I active &rarr; beta-oxidation proceeds.</div>
+</div>
+
+<div class="card">
+<h3>Pentose Phosphate Pathway</h3>
+<div class="pathway"><div class="pw-label">PPP: NADPH and Ribose</div>
+G6P &rarr; <strong>G6P dehydrogenase</strong> (rate-limiting) &rarr; 6-PG + NADPH<br>
+6-PG &rarr; 6-PG dehydrogenase &rarr; Ribulose-5-P + CO2 + NADPH<br>
+Oxidative phase total: 2 NADPH per glucose<br>
+Non-oxidative phase: transketolase (TPP/B1) + transaldolase &rarr; ribose-5-P for nucleotides
+</div>
+<div class="warn"><div class="warn-label">G6PD Deficiency</div>NADPH from PPP is essential for: (1) glutathione reductase (RBC oxidative protection), (2) fatty acid synthesis, (3) CYP450 drug metabolism, (4) respiratory burst (NADPH oxidase in neutrophils). G6PD deficiency: RBCs cannot regenerate reduced glutathione. Oxidative triggers (primaquine, sulfonamides, fava beans, infections) cause Heinz bodies and hemolysis.</div>
+</div>
+
+<div class="card">
+<h3>Urea Cycle</h3>
+<div class="pathway"><div class="pw-label">Urea Cycle: Mitochondria + Cytoplasm</div>
+NH4+ + CO2 + 2 ATP &rarr; <strong>CPS I</strong> (mito, requires N-acetylglutamate) &rarr; Carbamoyl-P<br>
+Carbamoyl-P + Ornithine &rarr; <strong>OTC</strong> (mito) &rarr; Citrulline [exits to cytoplasm]<br>
+Citrulline + Aspartate + ATP &rarr; <strong>ASS</strong> &rarr; Argininosuccinate<br>
+Argininosuccinate &rarr; <strong>ASL</strong> &rarr; Arginine + Fumarate [links to TCA!]<br>
+Arginine &rarr; <strong>Arginase</strong> &rarr; Urea + Ornithine (recycled)
+</div>
+<div class="mcat"><div class="mcat-label">High-Yield</div>OTC deficiency (X-linked, most common urea cycle defect): hyperammonemia + elevated orotic acid (excess carbamoyl-P spills into pyrimidine synthesis). The MCAT uses orotic acid to distinguish OTC deficiency from other hyperammonemia causes.</div>
+</div>
+</div>
+
+<div class="section" id="sec-reactions">
+<div class="sg-section">
+<h2>Reactions and Mechanisms You Must Master</h2>
+<p>The MCAT tests whether you can predict products by identifying functional groups and applying mechanism patterns to unfamiliar molecules. Master these core reaction types.</p>
+</div>
+
+<div class="card">
+<h3>Amino Acid Chemistry at Physiological pH</h3>
+<p>Every amino acid question requires knowing charge states at pH 7.4. Rule: if pH > pKa, the group is deprotonated. If pH < pKa, it is protonated.</p>
+<table class="rt"><tr><th>Group</th><th>pKa</th><th>State at pH 7.4</th><th>Charge</th></tr>
+<tr><td>Alpha-COOH</td><td>~2.0</td><td>COO-</td><td>-1</td></tr>
+<tr><td>Alpha-NH3+</td><td>~9.5</td><td>NH3+</td><td>+1</td></tr>
+<tr><td>Asp/Glu side</td><td>~3.9/4.1</td><td>COO-</td><td>-1</td></tr>
+<tr><td>His side</td><td>~6.0</td><td>Mostly deprotonated</td><td>~0</td></tr>
+<tr><td>Cys side</td><td>~8.3</td><td>SH (protonated)</td><td>0</td></tr>
+<tr><td>Tyr side</td><td>~10.1</td><td>OH (protonated)</td><td>0</td></tr>
+<tr><td>Lys side</td><td>~10.5</td><td>NH3+</td><td>+1</td></tr>
+<tr><td>Arg side</td><td>~12.5</td><td>Guanidinium+</td><td>+1</td></tr></table>
+<div class="warn"><div class="warn-label">The His Trap</div>Histidine (pKa ~6) is the only amino acid with a side chain pKa near physiological pH. This makes it the best physiological buffer and the best catalytic residue (proton donor AND acceptor). If the MCAT asks "which amino acid at an active site," think His first.</div>
+</div>
+
+<div class="card">
+<h3>SN1/SN2/E1/E2: Expanded Decision Framework</h3>
+<table class="rt"><tr><th>Factor</th><th>SN2</th><th>SN1</th><th>E2</th><th>E1</th></tr>
+<tr><td>Substrate</td><td>Methyl, 1&deg;</td><td>3&deg;</td><td>3&deg;, 2&deg;</td><td>3&deg;</td></tr>
+<tr><td>Nuc/Base</td><td>Strong nuc</td><td>Weak nuc</td><td>Strong/bulky base</td><td>Weak base</td></tr>
+<tr><td>Solvent</td><td>Polar aprotic</td><td>Polar protic</td><td>Polar aprotic</td><td>Polar protic</td></tr>
+<tr><td>Temp</td><td>Lower</td><td>Higher</td><td>Higher</td><td>Higher</td></tr>
+<tr><td>Mechanism</td><td>Concerted</td><td>2-step (carbo+)</td><td>Concerted</td><td>2-step (carbo+)</td></tr>
+<tr><td>Stereo</td><td>Inversion</td><td>Racemization</td><td>Anti-periplanar</td><td>Zaitsev</td></tr>
+<tr><td>Rate</td><td>k[sub][nuc]</td><td>k[sub]</td><td>k[sub][base]</td><td>k[sub]</td></tr></table>
+<div class="warn"><div class="warn-label">The 2&deg; Problem</div>Secondary substrates can go any of the four ways. Deciding factors: (1) strong nuc = SN2, strong base = E2, weak = SN1/E1. (2) Aprotic solvent pushes SN2/E2. (3) Heat favors elimination. The MCAT puts 2&deg; substrates in questions specifically to test this analysis.</div>
+</div>
+
+<div class="card">
+<h3>Carbonyl Reactivity Hierarchy</h3>
+<div class="pathway"><div class="pw-label">Carboxylic Acid Derivative Reactivity (Most to Least)</div>
+Acid chloride > Anhydride > Ester > Amide<br>
+Reason: Cl is least electron-donating. N in amide donates lone pair into C=O via resonance = most stable = least reactive.<br>
+You can go DOWN the ladder but NOT UP without special reagents.
+</div>
+<div class="mcat"><div class="mcat-label">Biochemistry Link</div>Peptide bonds are amide bonds, the LEAST reactive carboxylic acid derivative. This is why proteins are stable in water. Proteases must provide enormous rate enhancement (catalytic triad: Ser-His-Asp) to cleave them.</div>
+</div>
+
+<div class="card">
+<h3>Oxidizing and Reducing Agents</h3>
+<table class="rt"><tr><th>Reagent</th><th>Action</th><th>Selectivity</th></tr>
+<tr><td>PCC</td><td>Mild oxidation</td><td>1&deg; OH &rarr; aldehyde ONLY. 2&deg; OH &rarr; ketone.</td></tr>
+<tr><td>KMnO4 / Jones</td><td>Strong oxidation</td><td>1&deg; OH &rarr; carboxylic acid. 2&deg; &rarr; ketone.</td></tr>
+<tr><td>NaBH4</td><td>Mild reduction</td><td>Aldehydes/ketones &rarr; alcohols. NOT esters/acids.</td></tr>
+<tr><td>LiAlH4</td><td>Strong reduction</td><td>ALL carbonyls &rarr; alcohols. Amides &rarr; amines.</td></tr>
+<tr><td>H2/Pd</td><td>Catalytic hydrogenation</td><td>C=C &rarr; C-C (syn addition).</td></tr></table>
+<div class="warn"><div class="warn-label">PCC vs. KMnO4</div>If a passage says "oxidation of a primary alcohol with PCC," the product is an aldehyde. If it says "KMnO4 or Jones reagent," the product is a carboxylic acid. Reading the reagent changes the answer.</div>
+</div>
+
+<div class="card">
+<h3>Key Named Reactions</h3>
+<table class="rt"><tr><th>Reaction</th><th>What It Does</th><th>Biochem Connection</th></tr>
+<tr><td>Aldol condensation</td><td>C-C bond between two carbonyls</td><td>Aldolase in glycolysis (reverse aldol)</td></tr>
+<tr><td>Decarboxylation</td><td>Removes CO2 from beta-keto acid</td><td>Isocitrate DH, alpha-KG DH in TCA</td></tr>
+<tr><td>Schiff base (imine)</td><td>1&deg; amine + aldehyde/ketone</td><td>PLP-dependent enzymes (aminotransferases)</td></tr>
+<tr><td>Fischer esterification</td><td>Acid + alcohol &rarr; ester</td><td>Triglyceride synthesis</td></tr>
+<tr><td>Saponification</td><td>Base hydrolysis of ester/fat</td><td>Soap making; irreversible (unlike acid hydrolysis)</td></tr>
+<tr><td>Transamination</td><td>Amino group transfer between amino acids</td><td>AST, ALT (PLP-dependent, Schiff base mechanism)</td></tr></table>
+</div>
+</div>
+
+<!-- MISCONCEPTIONS -->
+<div class="section" id="sec-misconceptions">
+<div class="sg-section">
+<h2>Misconceptions That Cost Points</h2>
+<p>Each misconception below is a specific wrong idea that MCAT answer choices are designed around. Read the wrong idea, understand why it fails, and replace it.</p>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Enzymes Lower Ea, NOT Change Delta-G</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Enzymes lower the activation energy (Ea). They do NOT change the free energy change (Delta-G) or the equilibrium constant (Keq). They accelerate BOTH forward and reverse reactions equally. An enzyme cannot make an endergonic reaction exergonic.</p>
+<div class="warn"><div class="warn-label">The Trap</div>"The enzyme makes the reaction more favorable" vs. "The enzyme makes the reaction faster." Delta-G = favorability. Ea = speed. Enzymes change speed, not favorability.</div>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Km Is NOT Affinity (Precisely)</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Km = substrate concentration at half-Vmax. Low Km implies high apparent affinity, but Km = (k-1 + kcat)/k1. Only when kcat is very small relative to k-1 does Km approximate Kd. Competitive inhibitors increase apparent Km (Vmax unchanged). Uncompetitive inhibitors decrease BOTH apparent Km and Vmax (students forget this).</p>
+<div class="warn"><div class="warn-label">Lineweaver-Burk Summary</div>Competitive: same y-intercept (Vmax), x-intercept changes (Km up). Noncompetitive: same x-intercept (Km), y-intercept changes (Vmax down). Uncompetitive: parallel lines (both change proportionally). Mixed: lines intersect in 2nd quadrant.</div>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Delta-G vs. Delta-G-Standard Are Different</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Delta-G-standard is at standard conditions (1M, 25C, 1 atm). Fixed property. Delta-G = actual conditions: Delta-G = Delta-G-std + RT ln(Q). A reaction with positive Delta-G-std CAN proceed if Q is small enough. Cells drive unfavorable reactions by keeping product concentrations low (coupling to ATP hydrolysis).</p>
+<div class="warn"><div class="warn-label">The Trap</div>You CANNOT determine reaction direction from Delta-G-std alone without knowing actual concentrations. Only Delta-G determines direction.</div>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Codominance vs. Incomplete Dominance</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Codominance: BOTH alleles fully expressed. Heterozygote shows BOTH phenotypes (not a blend). Example: ABO blood type (IA IB = type AB, both antigens present). Incomplete dominance: BLENDED intermediate phenotype. Example: red x white flower = pink.</p>
+<div class="warn"><div class="warn-label">Sickle Cell Subtlety</div>Codominant at protein level (both HbA and HbS made). Incomplete dominance at clinical level (trait carriers have mild symptoms). The MCAT can ask from either perspective.</div>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Osmolarity vs. Tonicity</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Osmolarity = total solute concentration. Tonicity = effect on cell volume (only counts non-penetrating solutes). A 300 mOsm urea solution is isosmotic but HYPOTONIC (urea crosses the membrane freely, does not hold water out, cell swells).</p>
+<div class="warn"><div class="warn-label">The Trap</div>A solution with a membrane-permeable solute at the same osmolarity as the cell appears isosmotic but is functionally hypotonic. The cell may lyse.</div>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">MHC I vs. MHC II vs. Antibodies</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>MHC I: ALL nucleated cells. Displays intracellular peptides to CD8+ T cells. MHC II: APCs only (dendritic, macrophages, B cells). Displays exogenous peptides to CD4+ T cells. Antibodies: recognize native (3D) antigens directly. T cells ONLY see linear peptides on MHC.</p>
+<div class="warn"><div class="warn-label">The Trap</div>T cells CANNOT directly recognize free-floating antigens. They require antigen presentation on MHC. B cells/antibodies CAN bind free antigens.</div>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Action Potential: Closed vs. Inactivated Na+ Channels</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Closed channel: can be opened by depolarization. Inactivated channel: CANNOT reopen until it resets (ball-and-chain blocks pore). Cycle: Closed (resting) &rarr; Open (depolarizing) &rarr; Inactivated (ball blocks) &rarr; Closed (repolarization resets). Absolute refractory period = inactivation, not closure.</p>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Le Chatelier: Only Temperature Changes K</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>Adding/removing reactants, changing pressure, adding catalysts: shift equilibrium position but do NOT change K. Temperature is the ONLY factor that changes K. Exothermic: heat increases, K decreases (shifts left). Endothermic: heat increases, K increases (shifts right).</p>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Hardy-Weinberg: Five Assumptions, One Equation</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>p2 + 2pq + q2 = 1. Five conditions for equilibrium: no mutation, no selection, no migration, no drift (infinite pop), random mating. Most common MCAT format: given disease frequency (q2), find carrier frequency (2pq). Remember carrier = 2pq, not just pq.</p>
+</div>
+
+<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Parasympathetic: Both Pre/Post Use ACh But Different Receptors</span><span class="c-arrow">&#9660;</span></div>
+<div class="c-body">
+<p>ALL preganglionic neurons (both divisions): ACh at nicotinic receptors (ion channels, fast). Parasympathetic postganglionic: ACh at muscarinic (GPCRs, slow). Sympathetic postganglionic: NE at adrenergic (except sweat glands = ACh muscarinic). Atropine (muscarinic blocker) blocks parasympathetic postganglionic effects ONLY, not ganglionic nicotinic transmission.</p>
+</div>
+</div>
+
+<!-- SYSTEMS INTEGRATION -->
+<div class="section" id="sec-integration">
+<div class="sg-section">
+<h2>Multi-System Integration: Tracing Cascades</h2>
+<p>The MCAT's hardest questions present a clinical scenario and ask about downstream effects in a completely different organ system. Know the chains.</p>
+</div>
+
+<div class="card">
+<h3>DKA Cascade (Type 1 Diabetes)</h3>
+<div class="pathway"><div class="pw-label">Complete DKA Chain</div>
+No insulin &rarr; Cells starve (can't uptake glucose)<br>
+&rarr; Liver: gluconeogenesis + ketogenesis (unregulated lipolysis &rarr; FFA &rarr; ketones)<br>
+&rarr; Blood: hyperglycemia + ketonemia &rarr; metabolic acidosis<br>
+&rarr; Kidney: glucose exceeds threshold (180 mg/dL) &rarr; glycosuria &rarr; osmotic diuresis<br>
+&emsp;&rarr; Polyuria &rarr; dehydration &rarr; polydipsia<br>
+&rarr; Electrolytes: H+ enters cells, K+ exits + no insulin to drive K+ in &rarr; serum K+ HIGH (despite total body K+ depletion)<br>
+&rarr; Respiratory: Kussmaul breathing (compensatory for acidosis)<br>
+&rarr; TREATMENT DANGER: insulin &rarr; K+ shifts in &rarr; hypokalemia &rarr; arrhythmia risk
+</div>
+</div>
+
+<div class="card">
+<h3>CKD Multi-System Failure</h3>
+<div class="pathway"><div class="pw-label">Chronic Kidney Disease Cascade</div>
+Nephron loss &rarr;<br>
+1. Fluid/Na+: retention &rarr; HTN &rarr; LVH &rarr; heart failure<br>
+2. EPO: decreased &rarr; normocytic anemia &rarr; fatigue<br>
+3. Vitamin D: 1-alpha-hydroxylase loss &rarr; no calcitriol &rarr; low Ca2+ absorption<br>
+&emsp;&rarr; Secondary hyperparathyroidism &rarr; bone resorption &rarr; renal osteodystrophy<br>
+4. Acid-base: can't excrete H+ &rarr; metabolic acidosis<br>
+5. K+: can't excrete &rarr; hyperkalemia &rarr; arrhythmia risk<br>
+6. Phosphate: can't excrete &rarr; hyperphosphatemia &rarr; binds Ca2+ &rarr; worsens hypocalcemia
+</div>
+<div class="mcat"><div class="mcat-label">MCAT Application</div>If a passage describes fatigue, bone pain, low Hb, low Ca2+, high PTH, high phosphate, low GFR: "Which single organ's dysfunction explains ALL findings?" Answer: kidney.</div>
+</div>
+
+<div class="card">
+<h3>Heart Failure: Forward and Backward</h3>
+<div class="pathway"><div class="pw-label">Left Heart Failure</div>
+BACKWARD: blood backs into pulmonary veins &rarr; pulmonary edema &rarr; dyspnea<br>
+FORWARD: decreased CO &rarr; decreased renal perfusion &rarr; RAAS activation &rarr; Na+/H2O retention &rarr; MORE volume &rarr; WORSE failure<br>
+Most common cause of RIGHT heart failure = LEFT heart failure (pulmonary congestion &rarr; pulmonary HTN &rarr; RV overload)
+</div>
+<div class="sys"><div class="sys-label">Drug Targets</div>ACE inhibitors: break RAAS cycle. Loop diuretics: reduce volume directly. Beta-blockers: reduce HR and remodeling. The MCAT may describe each by mechanism and ask WHERE in the chain it acts.</div>
+</div>
+
+<div class="card">
+<h3>O2 Dissociation Curve: Shifts and Traps</h3>
+<div class="pathway"><div class="pw-label">Right Shift = Release O2 to Tissues</div>
+RIGHT: increased temp, H+ (Bohr), CO2, 2,3-BPG. Tissues that need O2 are hot, acidic, high CO2.<br>
+LEFT: decreased temp, H+, CO2, 2,3-BPG. Also: CO, fetal Hb (HbF), methemoglobin.<br>
+CO: 200x affinity. Left-shifts remaining Hb. Pulse ox can't distinguish HbCO from HbO2.<br>
+HbF: gamma subunits bind 2,3-BPG poorly &rarr; higher O2 affinity &rarr; pulls O2 from maternal blood.
+</div>
+</div>
+
+<div class="card">
+<h3>Liver Failure Consequences</h3>
+<table class="rt"><tr><th>Function Lost</th><th>Consequence</th><th>System</th></tr>
+<tr><td>Albumin synthesis</td><td>Low oncotic pressure &rarr; edema, ascites</td><td>Vascular</td></tr>
+<tr><td>Clotting factors</td><td>Coagulopathy, bleeding</td><td>Hematologic</td></tr>
+<tr><td>Bilirubin conjugation</td><td>Jaundice</td><td>GI</td></tr>
+<tr><td>Urea cycle</td><td>Hyperammonemia &rarr; encephalopathy</td><td>Neurologic</td></tr>
+<tr><td>CYP450</td><td>Drug toxicity at normal doses</td><td>Pharmacologic</td></tr>
+<tr><td>Bile production</td><td>Fat malabsorption &rarr; ADEK deficiency</td><td>GI/Skeletal</td></tr>
+<tr><td>Gluconeogenesis</td><td>Hypoglycemia</td><td>Metabolic</td></tr>
+<tr><td>Estrogen clearance</td><td>Gynecomastia, spider angiomata</td><td>Endocrine</td></tr></table>
+</div>
+</div>
+
+<!-- STRATEGY -->
+<div class="section" id="sec-strategy">
+<div class="sg-section">
+<h2>MCAT Advanced Strategy</h2>
+</div>
+
+<div class="card">
+<h3>Passage Deconstruction</h3>
+<p>Step 1: Read the LAST sentence first (main conclusion). Step 2: Identify IV, DV, controls. Step 3: Scan figures/tables before passage text. Step 4: Read passage for context. Spend no more than 3 min reading, 1.5 min per question.</p>
+</div>
+
+<div class="card">
+<h3>Answer Elimination Hierarchy</h3>
+<p>Step 1: Eliminate factually incorrect answers. Step 2: Eliminate true but irrelevant answers. Step 3: Eliminate true/relevant but incomplete answers. Step 4: Choose the most direct, complete explanation.</p>
+<div class="warn"><div class="warn-label">"True But Not The Answer" Trap</div>A question about WHY a diabetic has bone loss. "The patient has elevated glucose" is true but does not explain bone loss. "Impaired renal 1-alpha-hydroxylase reduces calcium absorption" is true AND explains the mechanism. Always ask: does this answer the SPECIFIC question?</div>
+</div>
+
+<div class="card">
+<h3>Experimental Design Questions</h3>
+<table class="rt"><tr><th>Question Type</th><th>What They Ask</th><th>Approach</th></tr>
+<tr><td>"Best control?"</td><td>Isolate the variable</td><td>Differs from experimental in ONLY the tested variable</td></tr>
+<tr><td>"Supported conclusion?"</td><td>What does data show?</td><td>Only directly supported claims, not extrapolations</td></tr>
+<tr><td>"Weakens conclusion?"</td><td>Alternative explanation?</td><td>Find an uncontrolled confounding variable</td></tr>
+<tr><td>"Next experiment?"</td><td>Strengthen/extend?</td><td>Different method, same hypothesis; or natural extension</td></tr></table>
+</div>
+
+<div class="card">
+<h3>Quick-Kill Formulas</h3>
+<table class="rt"><tr><th>Concept</th><th>Formula/Rule</th></tr>
+<tr><td>Dilution</td><td><code>M1V1 = M2V2</code></td></tr>
+<tr><td>pH</td><td><code>pH = -log[H+]</code></td></tr>
+<tr><td>Buffers</td><td><code>pH = pKa + log([A-]/[HA])</code></td></tr>
+<tr><td>Gibbs</td><td><code>DG = DH - TDS</code></td></tr>
+<tr><td>Gibbs-eq</td><td><code>DG0 = -RT ln K</code></td></tr>
+<tr><td>Electrochem</td><td><code>DG0 = -nFE0</code></td></tr>
+<tr><td>Nernst</td><td><code>E = E0 - (0.0592/n)log Q</code></td></tr>
+<tr><td>Gas law</td><td><code>PV = nRT</code></td></tr>
+<tr><td>Pressure</td><td><code>P = rho*g*h</code></td></tr>
+<tr><td>Optics</td><td><code>1/f = 1/do + 1/di</code></td></tr>
+<tr><td>Ohm</td><td><code>V = IR</code></td></tr>
+<tr><td>Coulomb</td><td><code>F = kq1q2/r^2</code></td></tr></table>
+</div>
+</div>
+
+</div>
+<script>
+const sections=['practice','pathways','reactions','misconceptions','integration','strategy'];
+function showSection(id){sections.forEach(s=>document.getElementById('sec-'+s).classList.toggle('active',s===id));document.querySelectorAll('.nav button').forEach((b,i)=>b.classList.toggle('active',sections[i]===id));window.scrollTo({top:0,behavior:'smooth'})}
+function toggleC(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+
+let currentDiff=3,correct=0,wrong=0,total=0,streak=0,answered=false,activeTopic='all',currentQ=null,usedQs=new Set(),selectedIdx=-1;
+const diffLabels={1:'1 \u2014 Foundational',2:'2 \u2014 Developing',3:'3 \u2014 Medium',4:'4 \u2014 Challenging',5:'5 \u2014 MCAT Hard'};
+const diffClasses={1:'diff-1',2:'diff-2',3:'diff-3',4:'diff-4',5:'diff-5'};
+const topicColors={Metabolism:'badge-green',Signaling:'badge-purple',Genetics:'badge-blue',Renal:'badge-teal',Organic:'badge-amber',Biochem:'badge-indigo'};
+
+const QB = [{"diff": 3, "topic": "Metabolism", "stem": "A patient with pyruvate dehydrogenase (PDH) deficiency would be expected to have elevated blood levels of which metabolite?", "passage": "PDH converts pyruvate to acetyl-CoA in the mitochondrial matrix, requiring TPP, lipoic acid, CoA, FAD, and NAD+ as cofactors.", "opts": ["Acetyl-CoA", "Lactate", "Citrate", "Oxaloacetate"], "ans": 1, "explain": "Without PDH, pyruvate cannot enter the TCA cycle as acetyl-CoA. Pyruvate accumulates and is shunted to lactate (via LDH) and alanine (via ALT). This causes lactic acidosis. Acetyl-CoA and citrate would be LOW, not high.", "systems": "Enzyme defect (PDH) \u2192 Pyruvate accumulates \u2192 Lactate builds up \u2192 Metabolic acidosis", "flashcards": [["PDH cofactors", "TPP (B1), Lipoate, CoA (B5), FAD (B2), NAD+ (B3)"], ["PDH product", "Acetyl-CoA + CO2 + NADH"], ["Lactate source", "Pyruvate + NADH \u2192 Lactate + NAD+ (LDH)"], ["B1 deficiency", "Beriberi, Wernicke-Korsakoff"]], "misconception": {"wrong": "PDH deficiency increases acetyl-CoA", "right": "PDH deficiency DECREASES acetyl-CoA because PDH IS the enzyme that makes it. Substrate (pyruvate) builds up, not product."}, "teachback": "Explain why giving glucose to a PDH-deficient patient makes things WORSE."}, {"diff": 4, "topic": "Metabolism", "stem": "During prolonged fasting, the brain shifts to ketone bodies. Which enzyme, absent in the liver, allows peripheral tissues but NOT the liver to use ketones?", "opts": ["HMG-CoA synthase", "Thiolase", "Succinyl-CoA:acetoacetate CoA transferase (thiophorase)", "HMG-CoA lyase"], "ans": 2, "explain": "The liver produces ketones but LACKS thiophorase, the enzyme that converts acetoacetate back to acetoacetyl-CoA. This ensures the liver exports ketones rather than burning them. Brain, heart, and muscle have thiophorase.", "systems": "Liver (production only) \u2192 Blood (transport) \u2192 Brain/muscle (use via thiophorase) \u2192 Acetyl-CoA \u2192 TCA", "flashcards": [["Ketone bodies", "Acetoacetate, beta-hydroxybutyrate, acetone"], ["Made where", "Liver mitochondria"], ["Why liver can't use", "Lacks thiophorase"], ["When elevated", "Starvation, DKA, low-carb diet"]], "misconception": {"wrong": "The liver uses ketones since it makes them", "right": "Liver CANNOT use ketones (lacks thiophorase). The factory is not the customer."}, "teachback": "Why is it metabolically advantageous for the liver to lack thiophorase?"}, {"diff": 5, "topic": "Metabolism", "passage": "NADH yields P/O ~2.5, FADH2 yields ~1.5. Succinate dehydrogenase (Complex II) oxidizes succinate to fumarate.", "stem": "If a drug inhibits Complex I but NOT Complex II, which substrate can still be oxidized by the ETC?", "opts": ["NADH from malate-aspartate shuttle", "NADH from isocitrate dehydrogenase", "FADH2 from succinate dehydrogenase", "NADH from alpha-KG dehydrogenase"], "ans": 2, "explain": "Complex I blocked = no NADH can enter ETC. But FADH2 from Complex II delivers electrons to CoQ DIRECTLY, bypassing Complex I. Electrons: CoQ \u2192 III \u2192 Cyt c \u2192 IV \u2192 O2. Partial ETC function preserved.", "systems": "Complex I blocked \u2192 NADH backs up \u2192 But Complex II (FADH2) still works \u2192 Partial ETC", "flashcards": [["Complex I substrate", "NADH only"], ["Complex II substrate", "FADH2 from succinate"], ["Why FADH2 = less ATP", "Bypasses Complex I proton pump"], ["Complex I poisons", "Rotenone, barbiturates"]], "misconception": {"wrong": "Blocking Complex I stops entire ETC", "right": "FADH2 enters at Complex II, bypassing I. Complex III blocker stops both."}, "teachback": "Draw ETC entry points. Explain why Complex III inhibitor is more devastating than Complex I inhibitor."}, {"diff": 3, "topic": "Metabolism", "stem": "Fluoroacetate is converted to fluorocitrate, which inhibits aconitase in the TCA cycle. Which metabolite accumulates?", "opts": ["Citrate", "Isocitrate", "Alpha-ketoglutarate", "Succinate"], "ans": 0, "explain": "Aconitase converts citrate to isocitrate. Blocked = citrate accumulates. This is 'lethal synthesis': the body converts non-toxic fluoroacetate into toxic fluorocitrate via citrate synthase.", "flashcards": [["Aconitase", "Citrate \u2192 Isocitrate"], ["Lethal synthesis", "Body converts protoxin into active toxin"], ["TCA order", "Cit \u2192 Isocit \u2192 \u03b1-KG \u2192 Suc-CoA \u2192 Suc \u2192 Fum \u2192 Mal \u2192 OAA"], ["Citrate regulation", "Inhibits PFK-1"]], "misconception": {"wrong": "Blocking an enzyme decreases substrate", "right": "Blocking INCREASES substrate (accumulates). The PRODUCT decreases."}, "teachback": "Predict which metabolite accumulates if isocitrate dehydrogenase is inhibited instead."}, {"diff": 4, "topic": "Metabolism", "passage": "A patient with MCAD deficiency cannot oxidize medium-chain fatty acids. During fasting, they develop hypoketotic hypoglycemia.", "stem": "The hypoketotic hypoglycemia occurs because:", "opts": ["MCAD causes excess insulin", "Without beta-oxidation, insufficient acetyl-CoA for ketogenesis and gluconeogenesis support", "MCAD directly inhibits glycogen phosphorylase", "Medium-chain FAs are hepatotoxic"], "ans": 1, "explain": "Impaired beta-oxidation \u2192 low acetyl-CoA \u2192 low ketones (hypoketotic). Also: acetyl-CoA activates pyruvate carboxylase (1st step gluconeogenesis) and NADH provides reducing equivalents. Without these, gluconeogenesis fails \u2192 hypoglycemia.", "systems": "MCAD deficiency \u2192 Low acetyl-CoA \u2192 Low ketones + impaired gluconeogenesis \u2192 Brain fuel crisis", "flashcards": [["MCAD deficiency", "Can't oxidize C6-C12 FAs; AR; most common FAO defect"], ["Hypoketotic hypoglycemia", "= fatty acid oxidation defect"], ["Acetyl-CoA activates", "Pyruvate carboxylase"], ["Diagnostic", "Elevated medium-chain acylcarnitines"]], "misconception": {"wrong": "Hypoglycemia always = excess insulin", "right": "Hypoketotic hypoglycemia = FAO defect. Normal fasting should produce ketones."}, "teachback": "Why is MCAD asymptomatic fed but dangerous fasting?"}, {"diff": 3, "topic": "Signaling", "stem": "A mutation causes Gs-alpha to have impaired GTPase activity. Predicted effect on cAMP?", "opts": ["Decreased (Gs can't activate)", "Increased (Gs stays active longer)", "No change", "Fluctuating"], "ans": 1, "explain": "GTPase is the OFF switch. Impaired GTPase = Gs stays GTP-bound and active, continuously stimulating adenylyl cyclase. Same mechanism as cholera toxin.", "systems": "Mutation \u2192 Gs locked ON \u2192 Adenylyl cyclase constitutive \u2192 cAMP \u2191\u2191", "flashcards": [["Gs cycle", "GDP(OFF) \u2192 GTP(ON) \u2192 GTPase \u2192 GDP(OFF)"], ["Cholera toxin", "ADP-ribosylates Gs \u2192 blocks GTPase \u2192 locked ON"], ["Pertussis toxin", "ADP-ribosylates Gi \u2192 locked OFF \u2192 cAMP rises (unopposed)"], ["cAMP targets", "PKA \u2192 CREB, glycogen phosphorylase, CFTR"]], "misconception": {"wrong": "Impaired GTPase = Gs can't turn ON", "right": "GTPase is the OFF switch. Less GTPase = longer ON time."}, "teachback": "Compare cAMP effects of cholera toxin, pertussis toxin, and constitutively active Gs."}, {"diff": 4, "topic": "Signaling", "passage": "McCune-Albright: somatic mosaic activating Gs mutation. Patients have precocious puberty, cafe-au-lait spots, polyostotic fibrous dysplasia.", "stem": "Precocious puberty occurs because constitutive Gs mimics which hormone's signaling?", "opts": ["Insulin", "LH/FSH", "Aldosterone", "Cortisol"], "ans": 1, "explain": "LH and FSH signal through GPCRs coupled to Gs. Constitutive Gs = continuous LH/FSH-like stimulation in gonads, driving sex steroid production independent of actual gonadotropin levels. LH/FSH are actually LOW (negative feedback).", "systems": "Gs always ON in gonads \u2192 Autonomous sex steroid production \u2192 Negative feedback suppresses LH/FSH", "flashcards": [["Gs-coupled hormones", "Beta-adrenergic, glucagon, LH, FSH, TSH, PTH, ACTH"], ["Gi-coupled", "Alpha-2, M2 muscarinic, D2 dopamine"], ["Gq-coupled", "Alpha-1, M1/M3, H1, V1"], ["Somatic mosaic", "Post-zygotic mutation, only some cells affected"]], "misconception": {"wrong": "Precocious puberty = pituitary overproducing LH/FSH", "right": "In McCune-Albright, gonads are autonomous. LH/FSH are suppressed by negative feedback."}, "teachback": "How would you distinguish gonadotropin-independent vs gonadotropin-dependent precocious puberty?"}, {"diff": 5, "topic": "Signaling", "passage": "Researchers find a Gq-coupled receptor causes transient Ca2+ spike followed by sustained PKC activation.", "stem": "Sustained PKC despite transient Ca2+ is explained by:", "opts": ["PKC becomes Ca2+-independent after initial activation", "DAG remains in membrane and maintains PKC activity", "IP3 receptors desensitize", "PKC autophosphorylates constitutively"], "ans": 1, "explain": "PLC cleaves PIP2 into IP3 (transient Ca2+ from ER, quickly degraded) and DAG (persistent in membrane). DAG sustains PKC activation after Ca2+ returns to baseline. Different kinetics of the two second messengers.", "systems": "Gq \u2192 PLC \u2192 PIP2 \u2192 IP3 (transient Ca2+) + DAG (persistent) \u2192 PKC sustained", "flashcards": [["PIP2 products", "IP3 (soluble, Ca2+) + DAG (membrane, PKC)"], ["IP3 action", "Opens ER Ca2+ channels, transient"], ["DAG action", "Membrane-bound, sustained PKC activation"], ["PKC targets", "NF-kB, MAPK, cell proliferation"]], "misconception": {"wrong": "Both PLC products have same kinetics", "right": "IP3 is rapid/transient. DAG is persistent. Fundamentally different timescales."}, "teachback": "Trace the Gq cascade from receptor to cellular response, including timescale differences."}, {"diff": 3, "topic": "Signaling", "stem": "Nitric oxide (NO) causes vasodilation by activating which enzyme in smooth muscle?", "opts": ["Adenylyl cyclase", "Phospholipase C", "Soluble guanylyl cyclase", "Receptor tyrosine kinase"], "ans": 2, "explain": "NO diffuses into smooth muscle and activates soluble guanylyl cyclase (sGC), converting GTP to cGMP. cGMP activates PKG, which reduces intracellular Ca2+ and causes relaxation. Sildenafil blocks PDE5 (degrades cGMP), prolonging vasodilation.", "systems": "NO \u2192 sGC \u2192 cGMP \u2192 PKG \u2192 Ca2+ drops \u2192 Smooth muscle relaxes", "flashcards": [["NO source", "NOS (eNOS in endothelium, uses arginine + O2)"], ["NO target", "Soluble guanylyl cyclase \u2192 cGMP"], ["Sildenafil mechanism", "Blocks PDE5 \u2192 cGMP persists \u2192 prolonged vasodilation"], ["cGMP vs cAMP", "Different cyclic nucleotides, different kinases (PKG vs PKA)"]], "misconception": {"wrong": "NO works through cAMP like most vasodilators", "right": "NO works through cGMP/PKG, not cAMP/PKA. Different second messenger entirely."}, "teachback": "Compare vasodilation by NO/cGMP vs prostacyclin/cAMP. Both dilate, different mechanisms."}, {"diff": 3, "topic": "Genetics", "stem": "A man with hemophilia A (X-linked recessive) has children with a carrier woman. What fraction of ALL children will be affected?", "opts": ["1/8", "1/4", "1/2", "3/4"], "ans": 2, "explain": "Father X^h Y, Mother X^H X^h. Offspring: X^H X^h (carrier girl, 25%), X^h X^h (affected girl, 25%), X^H Y (normal boy, 25%), X^h Y (affected boy, 25%). Affected = 25%+25% = 50% = 1/2.", "flashcards": [["Hemophilia A", "Factor VIII, X-linked recessive"], ["Affected father x carrier mother", "1/2 daughters affected, 1/2 sons affected"], ["Key rule", "No male-to-male transmission in X-linked"], ["Affected female possible?", "Yes, if X^h X^h (affected dad x carrier mom)"]], "misconception": {"wrong": "Only males get hemophilia", "right": "Females CAN have hemophilia if homozygous X^h X^h. Rare but possible with affected father + carrier mother."}, "teachback": "What cross produces an affected female for an X-linked recessive trait?"}, {"diff": 4, "topic": "Genetics", "passage": "A couple has an AR-affected child. Population carrier frequency 1/25. Father confirmed carrier. Mother's status unknown.", "stem": "Probability their NEXT child is affected:", "opts": ["1/4", "1/25", "1/100", "1/50"], "ans": 2, "explain": "Father is carrier (1). Mother carrier probability from population = 1/25. If both carriers: 1/4 chance affected. Total = 1 x 1/25 x 1/4 = 1/100. Note: having an affected child already technically proves mom is carrier (Bayesian), but the question uses population frequency.", "flashcards": [["AR probability", "P(both carriers) x P(affected|carriers)"], ["Carrier freq from HW", "2pq"], ["Bayesian update", "Affected child \u2192 both parents confirmed carriers"], ["Compound probability", "Independent events: multiply"]], "misconception": {"wrong": "Having an affected child means 1/4 for next child automatically", "right": "1/4 ONLY if both parents confirmed carriers. Must account for probability of each parent being carrier."}, "teachback": "When does Bayesian reasoning change the genetic risk calculation?"}, {"diff": 5, "topic": "Genetics", "passage": "A Turner (45,X) woman has red-green color blindness (X-linked recessive). Father has normal vision. Mother is carrier.", "stem": "The nondisjunction most likely occurred in:", "opts": ["Meiosis I in the father", "Meiosis II in the father", "Meiosis I in the mother", "Meiosis II in the mother"], "ans": 0, "explain": "She is 45,X with color blindness, so her single X has the cb allele. This must be from mother (carrier X^CB X^cb). She got NO sex chromosome from father. Father's meiosis I nondisjunction: one sperm gets both X+Y, other gets neither. Nullisomic sperm + mom's X^cb egg = 45,X color blind.", "flashcards": [["Turner", "45,X; short, webbed neck, ovarian dysgenesis"], ["MI vs MII nondisjunction", "MI: all 4 gametes abnormal. MII: 2 normal, 2 abnormal"], ["Tracking nondisjunction", "Use alleles to identify which parent's chromosome is missing"], ["X-linked in Turner", "Only 1 X, so hemizygous like males"]], "misconception": {"wrong": "Turner always from maternal nondisjunction", "right": "Can lose either parental X. Track alleles (like color blindness) to determine which."}, "teachback": "How do molecular markers identify the parent-of-origin for nondisjunction?"}, {"diff": 3, "topic": "Renal", "stem": "pH 7.50, pCO2 50, HCO3- 38. This represents:", "opts": ["Metabolic acidosis with compensation", "Respiratory alkalosis with compensation", "Metabolic alkalosis with respiratory compensation", "Uncompensated respiratory acidosis"], "ans": 2, "explain": "pH 7.50 = alkalosis. HCO3- 38 (high) = metabolic alkalosis (primary). pCO2 50 (high) = respiratory compensation (hypoventilation retains CO2/acid). Body never overcompensates.", "flashcards": [["Step 1", "pH: <7.35 acidosis, >7.45 alkalosis"], ["Step 2", "Which parameter CAUSED the pH change?"], ["Met alkalosis causes", "Vomiting, diuretics, antacids, Conn syndrome"], ["Compensation rule", "Never overcompensates past 7.40"]], "misconception": {"wrong": "High pCO2 always = respiratory acidosis", "right": "High pCO2 can be compensatory. Check pH first. If alkalotic + high pCO2, CO2 is compensating."}, "teachback": "Walk through the 4-step acid-base algorithm."}, {"diff": 4, "topic": "Renal", "passage": "Type IV RTA: pH 7.31, K+ 5.8, HCO3- 18. Impaired aldosterone signaling in collecting duct.", "stem": "Hyperkalemia and acidosis are linked because:", "opts": ["High K+ inhibits carbonic anhydrase", "Impaired aldosterone reduces both K+ secretion and H+ secretion", "Acidosis shifts K+ into cells", "Hyperkalemia stimulates HCO3- reabsorption"], "ans": 1, "explain": "Aldosterone acts on principal cells (Na+ reabsorption, K+ secretion) and intercalated cells (H+ secretion). When aldosterone fails, both K+ and H+ accumulate. Type IV RTA = hyperkalemic non-anion gap metabolic acidosis.", "flashcards": [["Aldosterone targets", "Principal: ENaC, ROMK. Intercalated: H+-ATPase"], ["Type IV RTA", "Hypoaldosteronism \u2192 high K+ + acidosis"], ["Type I RTA", "Distal, can't secrete H+, LOW K+"], ["Type II RTA", "Proximal, can't reabsorb HCO3-, LOW K+"]], "misconception": {"wrong": "Hyperkalemia and acidosis are separate problems", "right": "Often linked through single mechanism (aldosterone or H+/K+ exchange)."}, "teachback": "Compare the four RTA types: segment, potassium, urine pH."}, {"diff": 5, "topic": "Renal", "passage": "Mountain climber, 5000m. Day 0: pH 7.47, pCO2 30, HCO3- 24. Day 2: pH 7.44, pCO2 30, HCO3- 20.", "stem": "The Day 0 to Day 2 change is explained by:", "opts": ["Further hyperventilation", "Renal excretion of bicarbonate", "Lactic acid production", "Increased 2,3-BPG"], "ans": 1, "explain": "Day 0: respiratory alkalosis from hyperventilation (low pCO2). Over 48 hours, kidneys compensate by excreting HCO3- (24\u219220), bringing pH toward normal (7.47\u21927.44). pCO2 unchanged (stimulus persists). This is renal compensation for chronic respiratory alkalosis.", "flashcards": [["Respiratory compensation", "Minutes"], ["Renal compensation", "Hours to days"], ["Altitude acclimatization", "Hyperventilation + renal HCO3- excretion + 2,3-BPG + EPO"], ["Chronic resp alkalosis", "HCO3- drops ~5 per 10 mmHg pCO2 drop"]], "misconception": {"wrong": "pH improving means alkalosis resolved", "right": "Primary disorder persists (pCO2 still low). Compensation masks it."}, "teachback": "Explain full altitude acclimatization timeline: minutes, hours, days, weeks."}, {"diff": 3, "topic": "Organic", "stem": "Grignard reagent (CH3MgBr) + formaldehyde (HCHO). Product after aqueous workup?", "opts": ["Methanol", "Ethanol", "Acetone", "Acetic acid"], "ans": 1, "explain": "CH3MgBr attacks formaldehyde carbonyl carbon. Adds 1C (from CH3) to 1C (formaldehyde) = 2C primary alcohol = ethanol. Grignard + formaldehyde = 1\u00b0 alcohol. Grignard + aldehyde = 2\u00b0. Grignard + ketone = 3\u00b0.", "flashcards": [["Grignard + HCHO", "1\u00b0 alcohol"], ["Grignard + aldehyde", "2\u00b0 alcohol"], ["Grignard + ketone", "3\u00b0 alcohol"], ["Grignard + CO2", "Carboxylic acid (after acid workup)"]], "misconception": {"wrong": "Grignards always give 2\u00b0 alcohols", "right": "Product depends on carbonyl partner. Count carbons on new alcohol carbon."}, "teachback": "Predict products of EtMgBr + acetaldehyde, PhMgBr + acetone, MeMgBr + CO2."}, {"diff": 4, "topic": "Organic", "passage": "A student tries to convert 1-butanol to 1-bromobutane using NaBr in water. Reaction fails.", "stem": "The reaction fails primarily because:", "opts": ["NaBr is too weak", "Water favors SN1", "OH- is a poor leaving group", "1\u00b0 substrates can't undergo substitution"], "ans": 2, "explain": "OH- is a terrible leaving group (strong base = poor LG). Must be activated: protonation (HBr makes H2O the LG), tosylation, or PBr3/SOCl2. Simply adding NaBr does nothing without activating the alcohol.", "flashcards": [["LG ranking", "I- > Br- > Cl- >> F- >> OH-"], ["Activating alcohols", "HBr/HCl, SOCl2, PBr3, TsCl"], ["Why OH- bad LG", "Strong base, holds bond tightly"], ["Water as LG", "Neutral/weak base = good LG (after protonation)"]], "misconception": {"wrong": "Any nucleophile displaces any group", "right": "The leaving group must actually LEAVE. OH- doesn't leave. Must convert it first."}, "teachback": "Design three routes to convert 1-butanol to 1-bromobutane."}, {"diff": 5, "topic": "Organic", "passage": "An enzyme uses histidine for acid-base catalysis: first donates H+ to substrate, then accepts H+ from intermediate.", "stem": "Histidine is uniquely suited because:", "opts": ["Highest pKa of any amino acid", "pKa near physiological pH allows both proton donation and acceptance", "Aromatic ring provides pi-stacking", "Can form disulfide bonds"], "ans": 1, "explain": "His pKa ~6.0, close to pH 7.4. Significant fractions of both protonated (can donate H+) and deprotonated (can accept H+) forms coexist. No other amino acid has a side chain pKa near 7.4. This makes His the premier catalytic residue.", "flashcards": [["His pKa", "~6.0 (imidazole)"], ["Why pKa near pH matters", "Both forms present \u2192 acid AND base catalysis"], ["Catalytic triad", "Ser-His-Asp (serine proteases)"], ["Other catalytic AAs", "Cys (nuc), Asp/Glu (acid/base), Lys (Schiff base)"]], "misconception": {"wrong": "Any charged AA can catalyze acid-base reactions", "right": "Effective catalysis requires pKa NEAR reaction pH. Only His qualifies at pH 7.4."}, "teachback": "Explain how the catalytic triad uses Asp to boost His basicity to activate Ser."}, {"diff": 3, "topic": "Biochem", "stem": "At physiological pH, what is the net charge of glutamate (pKa: alpha-COOH 2.1, alpha-NH3+ 9.5, R-group 4.1)?", "opts": ["-2", "-1", "0", "+1"], "ans": 1, "explain": "At pH 7.4: alpha-COOH (pKa 2.1) = deprotonated (-1). Alpha-NH3+ (pKa 9.5) = protonated (+1). R-group COOH (pKa 4.1) = deprotonated (-1). Net = -1 + 1 + (-1) = -1.", "flashcards": [["Charge rule", "pH > pKa = deprotonated. pH < pKa = protonated"], ["Acidic AAs", "Asp (D), Glu (E): negative at pH 7.4"], ["Basic AAs", "Lys (K), Arg (R), His (H): positive at pH 7.4 (His weakly)"], ["Isoelectric point", "pH where net charge = 0"]], "misconception": {"wrong": "Amino acids are neutral at physiological pH", "right": "Most are zwitterionic (net 0), but Asp/Glu are -1 and Lys/Arg are +1 at pH 7.4."}, "teachback": "Calculate the net charge of lysine at pH 7.4, pH 1.0, and pH 13.0."}, {"diff": 4, "topic": "Biochem", "stem": "During MI, cardiac cells switch to anaerobic metabolism. The first metabolic change is:", "opts": ["Increased TCA activity", "Lactate accumulation", "Increased FA oxidation", "Increased oxidative phosphorylation"], "ans": 1, "explain": "No O2 \u2192 ETC stops \u2192 NADH accumulates. To keep glycolysis running (2 ATP/glucose), pyruvate is reduced to lactate by LDH, regenerating NAD+. Lactate accumulates, pH drops, contributing to cell damage.", "systems": "Coronary occlusion \u2192 O2 loss \u2192 ETC stops \u2192 Lactate \u2192 pH drops \u2192 Cell damage", "flashcards": [["LDH reaction", "Pyruvate + NADH \u2192 Lactate + NAD+"], ["Why lactate formed", "Regenerates NAD+ so glycolysis continues"], ["Anaerobic ATP yield", "2 ATP/glucose (vs ~30-32 aerobic)"], ["Cardiac biomarkers", "Troponin I/T (specific), CK-MB (less specific)"]], "misconception": {"wrong": "Cells just stop making ATP without O2", "right": "Cells switch to glycolysis (anaerobic). Much less ATP, but some. Lactate is the cost."}, "teachback": "Explain why an MI causes elevated serum lactate AND elevated serum troponin through different mechanisms."}, {"diff": 5, "topic": "Biochem", "passage": "A researcher discovers that a competitive inhibitor has a Ki of 2 nM while the substrate has a Km of 500 uM.", "stem": "This inhibitor is problematic to overcome because:", "opts": ["The inhibitor irreversibly modifies the enzyme", "The Ki is much lower than Km, meaning the inhibitor binds ~250,000 times more tightly than substrate", "Competitive inhibitors cannot be overcome by substrate", "The inhibitor converts to an uncompetitive form at high concentrations"], "ans": 1, "explain": "Ki/Km ratio determines how much substrate is needed to overcome inhibition. Ki = 2 nM = 0.002 uM. Km = 500 uM. The inhibitor binds 250,000x more tightly. While competitive inhibition CAN theoretically be overcome by excess substrate, achieving 250,000x Km is practically impossible. This is why many drug design strategies target competitive inhibitors with very low Ki.", "flashcards": [["Ki definition", "Dissociation constant of inhibitor-enzyme complex (lower = tighter)"], ["Competitive overcome", "Add more substrate, but need [S] >> Ki proportionally"], ["Ki vs Km ratio", "Determines practical overcomability"], ["Transition state analogs", "Often have Ki << Km because they mimic the transition state"]], "misconception": {"wrong": "Competitive inhibitors are always easily overcome by adding substrate", "right": "Theoretically yes, but if Ki << Km, the substrate concentration needed is impractically high. Ki/Km ratio matters."}, "teachback": "Explain why transition state analogs are such effective competitive inhibitors (hint: enzymes bind TS most tightly)."}];
+
+function changeDiff(d){currentDiff=Math.min(5,Math.max(1,currentDiff+d));const el=document.getElementById('diff-display');el.textContent=diffLabels[currentDiff];el.className='diff-label '+diffClasses[currentDiff]}
+function updateStats(){document.getElementById('st-correct').textContent=correct;document.getElementById('st-wrong').textContent=wrong;document.getElementById('st-total').textContent=total;document.getElementById('st-pct').textContent=total>0?Math.round(correct/total*100)+'%':'--%';document.getElementById('st-streak').textContent=streak}
+
+function initTopicFilters(){const topics=[...new Set(QB.map(q=>q.topic))];const c=document.getElementById('topic-filters');c.innerHTML='<button class="topic-btn active" onclick="setTopic(this,\'all\')">All</button>';topics.forEach(t=>{c.innerHTML+='<button class="topic-btn" onclick="setTopic(this,\''+t+'\')">'+t+'</button>'})}
+function setTopic(btn,t){document.querySelectorAll('.topic-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');activeTopic=t}
+
+function pickQuestion(){let pool=QB.filter((q,i)=>{if(activeTopic!=='all'&&q.topic!==activeTopic)return false;if(usedQs.has(i))return false;return Math.abs(q.diff-currentDiff)<=1});if(!pool.length)pool=QB.filter((q,i)=>(activeTopic==='all'||q.topic===activeTopic)&&!usedQs.has(i));if(!pool.length){usedQs.clear();return pickQuestion()}pool.sort((a,b)=>Math.abs(a.diff-currentDiff)-Math.abs(b.diff-currentDiff));const q=pool[Math.floor(Math.random()*Math.min(5,pool.length))];usedQs.add(QB.indexOf(q));return q}
+
+function renderQuestion(q){const area=document.getElementById('quiz-area');const L=['A','B','C','D'];const dc=diffClasses[q.diff],dn=diffLabels[q.diff];
+let h='<div class="q-card" id="active-q"><div class="q-meta"><span class="q-tag '+(topicColors[q.topic]||'badge-green')+'">'+q.topic+'</span><span class="q-tag '+dc+'" style="border:1px solid currentColor">'+dn+'</span></div>';
+if(q.passage)h+='<div class="q-passage">'+q.passage+'</div>';
+h+='<div class="q-stem">'+q.stem+'</div><div class="q-opts">';
+q.opts.forEach((o,i)=>{h+='<div class="q-opt" onclick="selectOpt(this,'+i+')" data-idx="'+i+'"><span class="q-opt-letter">'+L[i]+'</span><span>'+o+'</span></div>'});
+h+='</div><div style="margin-top:0.8rem"><button class="q-submit" onclick="submitAnswer()" id="btn-submit" disabled>Check Answer</button></div>';
+h+='<div class="q-explain" id="q-explain"><span class="exp-label">Explanation</span>'+q.explain;
+if(q.systems)h+='<div class="systems-note"><strong>Systems Chain:</strong> '+q.systems+'</div>';
+h+='</div>';
+// Learning tools
+h+='<div class="learn-tools" id="learn-tools">';
+h+='<div class="lt-tabs">';
+if(q.flashcards)h+='<button class="lt-tab active" onclick="showLT(this,\'lt-fc\')">Flashcards</button>';
+if(q.misconception)h+='<button class="lt-tab" onclick="showLT(this,\'lt-mc\')">Misconception</button>';
+if(q.teachback)h+='<button class="lt-tab" onclick="showLT(this,\'lt-tb\')">Teach-Back</button>';
+h+='</div>';
+if(q.flashcards){h+='<div class="lt-panel active" id="lt-fc"><h4>Key Concept Cards (click to flip)</h4>';
+q.flashcards.forEach((fc,i)=>{h+='<span class="fc" onclick="flipFC(this)" data-back="'+fc[1].replace(/"/g,'&quot;')+'" data-front="'+fc[0].replace(/"/g,'&quot;')+'">'+fc[0]+'</span>'});h+='</div>'}
+if(q.misconception){h+='<div class="lt-panel" id="lt-mc"><h4>Common Misconception</h4><div class="misconception"><div class="wrong-idea">\u2717 '+q.misconception.wrong+'</div><div class="right-idea">\u2713 '+q.misconception.right+'</div></div></div>'}
+if(q.teachback){h+='<div class="lt-panel" id="lt-tb"><h4>Teach-Back Challenge</h4><div class="teach-prompt">'+q.teachback+'</div><p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-dim)">Try explaining this out loud or in writing before moving on. Teaching is the deepest form of learning.</p></div>'}
+h+='</div></div>';
+area.innerHTML=h;currentQ=q;answered=false;selectedIdx=-1}
+
+function showLT(btn,id){btn.parentElement.querySelectorAll('.lt-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.lt-panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function flipFC(el){if(el.classList.contains('flipped')){el.textContent=el.dataset.front;el.classList.remove('flipped')}else{el.textContent=el.dataset.back;el.classList.add('flipped')}}
+
+function selectOpt(el,idx){if(answered)return;document.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');selectedIdx=idx;document.getElementById('btn-submit').disabled=false}
+
+function submitAnswer(){if(answered||selectedIdx<0)return;answered=true;total++;const opts=document.querySelectorAll('.q-opt');
+if(selectedIdx===currentQ.ans){correct++;streak++;opts[selectedIdx].classList.add('correct')}else{wrong++;streak=0;opts[selectedIdx].classList.add('wrong');opts[currentQ.ans].classList.add('missed')}
+document.getElementById('q-explain').classList.add('show');document.getElementById('learn-tools').classList.add('show');document.getElementById('btn-submit').style.display='none';document.getElementById('btn-next-q').style.display='inline-block';updateStats()}
+
+function loadNextQuestion(){selectedIdx=-1;document.getElementById('btn-next-q').style.display='none';renderQuestion(pickQuestion())}
+function startQuiz(){document.getElementById('btn-start').style.display='none';loadNextQuestion()}
+initTopicFilters();
+</script>
+</body></html>
