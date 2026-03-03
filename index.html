@@ -37,9 +37,40 @@ table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}t
 .sg-section{margin-bottom:2rem}.sg-section h2{font-family:var(--font-display);font-size:1.55rem;color:#fff;margin-bottom:0.7rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}.sg-section h4{color:var(--accent);font-size:0.93rem;font-weight:600;margin:0.9rem 0 0.35rem}.sg-section p{color:var(--text-soft);font-size:0.94rem;margin-bottom:0.5rem}
 .collapsible{cursor:pointer;padding:0.85rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:0.4rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.2s}.collapsible:hover{border-color:rgba(52,211,153,0.2)}.collapsible .c-title{font-weight:500;font-size:0.93rem}.collapsible .c-arrow{color:var(--text-dim);font-size:0.85rem;transition:transform 0.2s}.collapsible.open .c-arrow{transform:rotate(180deg)}.c-body{display:none;padding:1.1rem;background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);margin-top:-0.4rem;margin-bottom:0.4rem}.c-body.open{display:block;animation:fadeIn 0.3s ease}.c-body p{color:var(--text-soft);font-size:0.94rem;margin-bottom:0.5rem}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:700px){.quiz-header{flex-direction:column}.q-card{padding:1.1rem}.container{padding:1.5rem 1rem 3rem}.hero{padding:3rem 1.5rem 2.5rem}.nav button{padding:0.75rem 0.8rem;font-size:0.8rem}}
+
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <div class="hero">
 <h1>MCAT <span>Advanced</span> Prep</h1>
 <p class="sub">Harder questions. Deeper explanations. Pathway mastery. Learn from every mistake.</p>
@@ -60,7 +91,7 @@ table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}t
 <button onclick="showSection('integration')">Systems Integration</button>
 <button onclick="showSection('strategy')">MCAT Strategy</button>
 </div>
-<div class="container">
+<div class="container" id="main-content" role="main">
 
 <div class="section active" id="sec-practice">
 <div class="quiz-header">
@@ -512,7 +543,7 @@ initTopicFilters();
 </script>
 
   <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
-  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;">⚠️ Important Notice</div>
+  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;"><span aria-hidden="true">⚠️</span> Important Notice</div>
   <p style="margin: 0 0 10px 0;">These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
   <p style="margin: 0 0 10px 0;">While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
   <p style="margin: 0 0 10px 0;">No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
