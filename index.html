@@ -40,20 +40,17 @@ table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}t
 
 /* ─── WCAG 2.1 AA: Visible focus indicators ─── */
 :focus-visible {
-  outline: 3px solid #005fcc !important;
-  outline-offset: 2px !important;
-}
-.tab-btn:focus-visible, .nav-btn:focus-visible {
-  outline: 3px solid #005fcc !important;
-  outline-offset: 2px !important;
+  outline: 3px solid var(--accent) !important;
+  outline-offset: 3px !important;
+  border-radius: 3px;
 }
 /* ─── Skip link ─── */
 .skip-link {
   position: absolute;
   top: -100px;
   left: 1rem;
-  background: #005fcc;
-  color: #fff;
+  background: var(--accent);
+  color: var(--bg);
   padding: 0.6rem 1.2rem;
   border-radius: 0 0 6px 6px;
   font-weight: 700;
@@ -62,19 +59,40 @@ table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}t
   z-index: 9999;
   transition: top 0.2s;
 }
-.skip-link:focus {
-  top: 0;
+.skip-link:focus { top: 0; }
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
+/* ─── Nav button active state uses aria-selected ─── */
+.nav button[aria-selected="true"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+/* ─── Collapsible keyboard accessible ─── */
+.collapsible[aria-expanded="true"] .c-arrow { transform: rotate(180deg); }
+/* ─── Disclaimer ─── */
+.disclaimer {
+  max-width: 800px; margin: 40px auto; padding: 20px 30px;
+  background: #fff8e1; border-left: 4px solid #f9a825;
+  border-radius: 8px; font-size: 14px; line-height: 1.6;
+  color: #3a3000;
+}
+.disclaimer-title { font-weight: bold; font-size: 15px; margin-bottom: 10px; color: #2a2000; }
 
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<div class="hero">
+<header class="hero">
 <h1>MCAT <span>Advanced</span> Prep</h1>
 <p class="sub">Harder questions. Deeper explanations. Pathway mastery. Learn from every mistake.</p>
-<div class="badges">
+<div class="badges" aria-label="Resource features">
 <span class="badge badge-green">Adaptive Engine</span>
 <span class="badge badge-indigo">Learning Tools</span>
 <span class="badge badge-purple">Pathway Maps</span>
@@ -82,20 +100,20 @@ table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}t
 <span class="badge badge-blue">Systems Chains</span>
 <span class="badge badge-teal">Teach-Back</span>
 </div>
-</div>
-<div class="nav" id="main-nav">
-<button class="active" onclick="showSection('practice')">Adaptive Practice</button>
-<button onclick="showSection('pathways')">Key Pathways</button>
-<button onclick="showSection('reactions')">Reactions</button>
-<button onclick="showSection('misconceptions')">Misconceptions</button>
-<button onclick="showSection('integration')">Systems Integration</button>
-<button onclick="showSection('strategy')">MCAT Strategy</button>
-</div>
-<div class="container" id="main-content" role="main">
+</header>
+<nav class="nav" id="main-nav" aria-label="Content sections">
+<button role="tab" aria-selected="true"  aria-controls="sec-practice"      id="tab-practice"      class="active" onclick="showSection('practice', this)">Adaptive Practice</button>
+<button role="tab" aria-selected="false" aria-controls="sec-pathways"      id="tab-pathways"      onclick="showSection('pathways', this)">Key Pathways</button>
+<button role="tab" aria-selected="false" aria-controls="sec-reactions"     id="tab-reactions"     onclick="showSection('reactions', this)">Reactions</button>
+<button role="tab" aria-selected="false" aria-controls="sec-misconceptions" id="tab-misconceptions" onclick="showSection('misconceptions', this)">Misconceptions</button>
+<button role="tab" aria-selected="false" aria-controls="sec-integration"   id="tab-integration"   onclick="showSection('integration', this)">Systems Integration</button>
+<button role="tab" aria-selected="false" aria-controls="sec-strategy"      id="tab-strategy"      onclick="showSection('strategy', this)">MCAT Strategy</button>
+</nav>
+<main class="container" id="main-content">
 
-<div class="section active" id="sec-practice">
+<section class="section active" id="sec-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="-1">
 <div class="quiz-header">
-<div class="quiz-stats">
+<div class="quiz-stats" role="status" aria-live="polite" aria-label="Quiz score">
 <div class="stat stat-green"><div class="stat-val" id="st-correct">0</div><div class="stat-label">Correct</div></div>
 <div class="stat stat-red"><div class="stat-val" id="st-wrong">0</div><div class="stat-label">Wrong</div></div>
 <div class="stat stat-blue"><div class="stat-val" id="st-total">0</div><div class="stat-label">Total</div></div>
@@ -119,7 +137,7 @@ table.rt{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.88rem}t
 </div>
 </div>
 
-<div class="section" id="sec-pathways">
+<section class="section" id="sec-pathways" role="tabpanel" aria-labelledby="tab-pathways" tabindex="-1">
 <div class="sg-section">
 <h2>Key Pathways: The Chains You Must Know</h2>
 <p>The MCAT tests whether you can trace a signal or metabolite through an entire pathway and predict what happens when one step fails. For each pathway below, know every intermediate, the enzyme, the regulation, and what disease results when it breaks.</p>
@@ -239,7 +257,7 @@ Arginine &rarr; <strong>Arginase</strong> &rarr; Urea + Ornithine (recycled)
 </div>
 </div>
 
-<div class="section" id="sec-reactions">
+<section class="section" id="sec-reactions" role="tabpanel" aria-labelledby="tab-reactions" tabindex="-1">
 <div class="sg-section">
 <h2>Reactions and Mechanisms You Must Master</h2>
 <p>The MCAT tests whether you can predict products by identifying functional groups and applying mechanism patterns to unfamiliar molecules. Master these core reaction types.</p>
@@ -307,71 +325,71 @@ You can go DOWN the ladder but NOT UP without special reagents.
 </div>
 
 <!-- MISCONCEPTIONS -->
-<div class="section" id="sec-misconceptions">
+<section class="section" id="sec-misconceptions" role="tabpanel" aria-labelledby="tab-misconceptions" tabindex="-1">
 <div class="sg-section">
 <h2>Misconceptions That Cost Points</h2>
 <p>Each misconception below is a specific wrong idea that MCAT answer choices are designed around. Read the wrong idea, understand why it fails, and replace it.</p>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Enzymes Lower Ea, NOT Change Delta-G</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-1"><span class="c-title">Enzymes Lower Ea, NOT Change Delta-G</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-1" role="region">
 <p>Enzymes lower the activation energy (Ea). They do NOT change the free energy change (Delta-G) or the equilibrium constant (Keq). They accelerate BOTH forward and reverse reactions equally. An enzyme cannot make an endergonic reaction exergonic.</p>
 <div class="warn"><div class="warn-label">The Trap</div>"The enzyme makes the reaction more favorable" vs. "The enzyme makes the reaction faster." Delta-G = favorability. Ea = speed. Enzymes change speed, not favorability.</div>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Km Is NOT Affinity (Precisely)</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-2"><span class="c-title">Km Is NOT Affinity (Precisely)</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-2" role="region">
 <p>Km = substrate concentration at half-Vmax. Low Km implies high apparent affinity, but Km = (k-1 + kcat)/k1. Only when kcat is very small relative to k-1 does Km approximate Kd. Competitive inhibitors increase apparent Km (Vmax unchanged). Uncompetitive inhibitors decrease BOTH apparent Km and Vmax (students forget this).</p>
 <div class="warn"><div class="warn-label">Lineweaver-Burk Summary</div>Competitive: same y-intercept (Vmax), x-intercept changes (Km up). Noncompetitive: same x-intercept (Km), y-intercept changes (Vmax down). Uncompetitive: parallel lines (both change proportionally). Mixed: lines intersect in 2nd quadrant.</div>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Delta-G vs. Delta-G-Standard Are Different</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-3"><span class="c-title">Delta-G vs. Delta-G-Standard Are Different</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-3" role="region">
 <p>Delta-G-standard is at standard conditions (1M, 25C, 1 atm). Fixed property. Delta-G = actual conditions: Delta-G = Delta-G-std + RT ln(Q). A reaction with positive Delta-G-std CAN proceed if Q is small enough. Cells drive unfavorable reactions by keeping product concentrations low (coupling to ATP hydrolysis).</p>
 <div class="warn"><div class="warn-label">The Trap</div>You CANNOT determine reaction direction from Delta-G-std alone without knowing actual concentrations. Only Delta-G determines direction.</div>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Codominance vs. Incomplete Dominance</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-4"><span class="c-title">Codominance vs. Incomplete Dominance</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-4" role="region">
 <p>Codominance: BOTH alleles fully expressed. Heterozygote shows BOTH phenotypes (not a blend). Example: ABO blood type (IA IB = type AB, both antigens present). Incomplete dominance: BLENDED intermediate phenotype. Example: red x white flower = pink.</p>
 <div class="warn"><div class="warn-label">Sickle Cell Subtlety</div>Codominant at protein level (both HbA and HbS made). Incomplete dominance at clinical level (trait carriers have mild symptoms). The MCAT can ask from either perspective.</div>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Osmolarity vs. Tonicity</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-5"><span class="c-title">Osmolarity vs. Tonicity</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-5" role="region">
 <p>Osmolarity = total solute concentration. Tonicity = effect on cell volume (only counts non-penetrating solutes). A 300 mOsm urea solution is isosmotic but HYPOTONIC (urea crosses the membrane freely, does not hold water out, cell swells).</p>
 <div class="warn"><div class="warn-label">The Trap</div>A solution with a membrane-permeable solute at the same osmolarity as the cell appears isosmotic but is functionally hypotonic. The cell may lyse.</div>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">MHC I vs. MHC II vs. Antibodies</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-6"><span class="c-title">MHC I vs. MHC II vs. Antibodies</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-6" role="region">
 <p>MHC I: ALL nucleated cells. Displays intracellular peptides to CD8+ T cells. MHC II: APCs only (dendritic, macrophages, B cells). Displays exogenous peptides to CD4+ T cells. Antibodies: recognize native (3D) antigens directly. T cells ONLY see linear peptides on MHC.</p>
 <div class="warn"><div class="warn-label">The Trap</div>T cells CANNOT directly recognize free-floating antigens. They require antigen presentation on MHC. B cells/antibodies CAN bind free antigens.</div>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Action Potential: Closed vs. Inactivated Na+ Channels</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-7"><span class="c-title">Action Potential: Closed vs. Inactivated Na+ Channels</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-7" role="region">
 <p>Closed channel: can be opened by depolarization. Inactivated channel: CANNOT reopen until it resets (ball-and-chain blocks pore). Cycle: Closed (resting) &rarr; Open (depolarizing) &rarr; Inactivated (ball blocks) &rarr; Closed (repolarization resets). Absolute refractory period = inactivation, not closure.</p>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Le Chatelier: Only Temperature Changes K</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-8"><span class="c-title">Le Chatelier: Only Temperature Changes K</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-8" role="region">
 <p>Adding/removing reactants, changing pressure, adding catalysts: shift equilibrium position but do NOT change K. Temperature is the ONLY factor that changes K. Exothermic: heat increases, K decreases (shifts left). Endothermic: heat increases, K increases (shifts right).</p>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Hardy-Weinberg: Five Assumptions, One Equation</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-9"><span class="c-title">Hardy-Weinberg: Five Assumptions, One Equation</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-9" role="region">
 <p>p2 + 2pq + q2 = 1. Five conditions for equilibrium: no mutation, no selection, no migration, no drift (infinite pop), random mating. Most common MCAT format: given disease frequency (q2), find carrier frequency (2pq). Remember carrier = 2pq, not just pq.</p>
 </div>
 
-<div class="collapsible" onclick="toggleC(this)"><span class="c-title">Parasympathetic: Both Pre/Post Use ACh But Different Receptors</span><span class="c-arrow">&#9660;</span></div>
-<div class="c-body">
+<button class="collapsible" onclick="toggleC(this)" aria-expanded="false" aria-controls="cbody-10"><span class="c-title">Parasympathetic: Both Pre/Post Use ACh But Different Receptors</span><span class="c-arrow" aria-hidden="true">&#9660;</span></button>
+<div class="c-body" id="cbody-10" role="region">
 <p>ALL preganglionic neurons (both divisions): ACh at nicotinic receptors (ion channels, fast). Parasympathetic postganglionic: ACh at muscarinic (GPCRs, slow). Sympathetic postganglionic: NE at adrenergic (except sweat glands = ACh muscarinic). Atropine (muscarinic blocker) blocks parasympathetic postganglionic effects ONLY, not ganglionic nicotinic transmission.</p>
 </div>
 </div>
 
 <!-- SYSTEMS INTEGRATION -->
-<div class="section" id="sec-integration">
+<section class="section" id="sec-integration" role="tabpanel" aria-labelledby="tab-integration" tabindex="-1">
 <div class="sg-section">
 <h2>Multi-System Integration: Tracing Cascades</h2>
 <p>The MCAT's hardest questions present a clinical scenario and ask about downstream effects in a completely different organ system. Know the chains.</p>
@@ -441,7 +459,7 @@ HbF: gamma subunits bind 2,3-BPG poorly &rarr; higher O2 affinity &rarr; pulls O
 </div>
 
 <!-- STRATEGY -->
-<div class="section" id="sec-strategy">
+<section class="section" id="sec-strategy" role="tabpanel" aria-labelledby="tab-strategy" tabindex="-1">
 <div class="sg-section">
 <h2>MCAT Advanced Strategy</h2>
 </div>
@@ -481,14 +499,45 @@ HbF: gamma subunits bind 2,3-BPG poorly &rarr; higher O2 affinity &rarr; pulls O
 <tr><td>Optics</td><td><code>1/f = 1/do + 1/di</code></td></tr>
 <tr><td>Ohm</td><td><code>V = IR</code></td></tr>
 <tr><td>Coulomb</td><td><code>F = kq1q2/r^2</code></td></tr></table>
-</div>
-</div>
+</section>
+</main>
 
-</div>
 <script>
-const sections=['practice','pathways','reactions','misconceptions','integration','strategy'];
-function showSection(id){sections.forEach(s=>document.getElementById('sec-'+s).classList.toggle('active',s===id));document.querySelectorAll('.nav button').forEach((b,i)=>b.classList.toggle('active',sections[i]===id));window.scrollTo({top:0,behavior:'smooth'})}
-function toggleC(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+(function(){
+'use strict';
+var sections=['practice','pathways','reactions','misconceptions','integration','strategy'];
+
+window.showSection=function(id,btn){
+  sections.forEach(function(s){
+    var panel=document.getElementById('sec-'+s);
+    var tab=document.getElementById('tab-'+s);
+    if(panel) panel.classList.toggle('active',s===id);
+    if(tab)   tab.setAttribute('aria-selected', s===id ? 'true' : 'false');
+  });
+  var panel=document.getElementById('sec-'+id);
+  if(panel) panel.focus();
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+
+window.toggleC=function(el){
+  var expanded=el.getAttribute('aria-expanded')==='true';
+  el.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+};
+
+// Arrow key navigation between tabs
+document.querySelectorAll('.nav button[role="tab"]').forEach(function(btn,idx,all){
+  btn.addEventListener('keydown',function(e){
+    var next;
+    if(e.key==='ArrowRight')      next=all[(idx+1)%all.length];
+    else if(e.key==='ArrowLeft')  next=all[(idx-1+all.length)%all.length];
+    else if(e.key==='Home')       next=all[0];
+    else if(e.key==='End')        next=all[all.length-1];
+    if(next){next.focus();next.click();}
+  });
+});
+}());
 
 let currentDiff=3,correct=0,wrong=0,total=0,streak=0,answered=false,activeTopic='all',currentQ=null,usedQs=new Set(),selectedIdx=-1;
 const diffLabels={1:'1 \u2014 Foundational',2:'2 \u2014 Developing',3:'3 \u2014 Medium',4:'4 \u2014 Challenging',5:'5 \u2014 MCAT Hard'};
@@ -508,8 +557,8 @@ function pickQuestion(){let pool=QB.filter((q,i)=>{if(activeTopic!=='all'&&q.top
 function renderQuestion(q){const area=document.getElementById('quiz-area');const L=['A','B','C','D'];const dc=diffClasses[q.diff],dn=diffLabels[q.diff];
 let h='<div class="q-card" id="active-q"><div class="q-meta"><span class="q-tag '+(topicColors[q.topic]||'badge-green')+'">'+q.topic+'</span><span class="q-tag '+dc+'" style="border:1px solid currentColor">'+dn+'</span></div>';
 if(q.passage)h+='<div class="q-passage">'+q.passage+'</div>';
-h+='<div class="q-stem">'+q.stem+'</div><div class="q-opts">';
-q.opts.forEach((o,i)=>{h+='<div class="q-opt" onclick="selectOpt(this,'+i+')" data-idx="'+i+'"><span class="q-opt-letter">'+L[i]+'</span><span>'+o+'</span></div>'});
+h+='<div class="q-stem">'+q.stem+'</div><div class="q-opts" role="group" aria-label="Answer choices">';
+q.opts.forEach((o,i)=>{h+='<button type="button" class="q-opt" onclick="selectOpt(this,'+i+')" data-idx="'+i+'" aria-pressed="false"><span class="q-opt-letter" aria-hidden="true">'+L[i]+'</span><span>'+o+'</span></button>'});
 h+='</div><div style="margin-top:0.8rem"><button class="q-submit" onclick="submitAnswer()" id="btn-submit" disabled>Check Answer</button></div>';
 h+='<div class="q-explain" id="q-explain"><span class="exp-label">Explanation</span>'+q.explain;
 if(q.systems)h+='<div class="systems-note"><strong>Systems Chain:</strong> '+q.systems+'</div>';
@@ -526,12 +575,12 @@ q.flashcards.forEach((fc,i)=>{h+='<span class="fc" onclick="flipFC(this)" data-b
 if(q.misconception){h+='<div class="lt-panel" id="lt-mc"><h4>Common Misconception</h4><div class="misconception"><div class="wrong-idea">\u2717 '+q.misconception.wrong+'</div><div class="right-idea">\u2713 '+q.misconception.right+'</div></div></div>'}
 if(q.teachback){h+='<div class="lt-panel" id="lt-tb"><h4>Teach-Back Challenge</h4><div class="teach-prompt">'+q.teachback+'</div><p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-dim)">Try explaining this out loud or in writing before moving on. Teaching is the deepest form of learning.</p></div>'}
 h+='</div></div>';
-area.innerHTML=h;currentQ=q;answered=false;selectedIdx=-1}
+area.innerHTML=h;area.setAttribute('aria-label','Question '+(total+1)+': '+q.topic);currentQ=q;answered=false;selectedIdx=-1}
 
 function showLT(btn,id){btn.parentElement.querySelectorAll('.lt-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.lt-panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
 function flipFC(el){if(el.classList.contains('flipped')){el.textContent=el.dataset.front;el.classList.remove('flipped')}else{el.textContent=el.dataset.back;el.classList.add('flipped')}}
 
-function selectOpt(el,idx){if(answered)return;document.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');selectedIdx=idx;document.getElementById('btn-submit').disabled=false}
+function selectOpt(el,idx){if(answered)return;document.querySelectorAll('.q-opt').forEach(o=>{o.classList.remove('selected');o.setAttribute('aria-pressed','false')});el.classList.add('selected');el.setAttribute('aria-pressed','true');selectedIdx=idx;document.getElementById('btn-submit').disabled=false}
 
 function submitAnswer(){if(answered||selectedIdx<0)return;answered=true;total++;const opts=document.querySelectorAll('.q-opt');
 if(selectedIdx===currentQ.ans){correct++;streak++;opts[selectedIdx].classList.add('correct')}else{wrong++;streak=0;opts[selectedIdx].classList.add('wrong');opts[currentQ.ans].classList.add('missed')}
@@ -542,12 +591,12 @@ function startQuiz(){document.getElementById('btn-start').style.display='none';l
 initTopicFilters();
 </script>
 
-  <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
-  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;"><span aria-hidden="true">⚠️</span> Important Notice</div>
-  <p style="margin: 0 0 10px 0;">These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
-  <p style="margin: 0 0 10px 0;">While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
-  <p style="margin: 0 0 10px 0;">No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
-  <p style="margin: 0 0 10px 0;">These materials are not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher. All content represents the independent work and ideas of the author.</p>
-  <p style="margin: 0;">This resource is provided "as is" without warranty of any kind, express or implied. The author assumes no liability for any errors or for any actions taken based on the information provided here.</p>
+<div class="disclaimer" role="note" aria-label="Important disclaimer">
+  <div class="disclaimer-title"><span aria-hidden="true">&#9888;</span> Important Notice</div>
+  <p>These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
+  <p>While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
+  <p>No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
+  <p>These materials are not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher. All content represents the independent work and ideas of the author.</p>
+  <p>This resource is provided "as is" without warranty of any kind, express or implied. The author assumes no liability for any errors or for any actions taken based on the information provided here.</p>
 </div>
 </body></html>
